@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Jelly Arena | Kian Bennett</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Jelly Arena
+        </div>
+        <a class="game-link itch-link" href="https://kbennett.itch.io/jelly-arena" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <div class="content-body">
+            Jelly Arena is a multiplayer arena brawler where the player can customise their jelly's abilities and appearance.
+            There is a wide array of ranged and melee abilities each with their own ability skins.
+            The player can level up their profile, unlock achievements and add their scores to the online leaderboard.
+            <br><br>
+            The game is made in Unity with C# - the multiplayer is handled with Unity's networking solution UNet.
+            <div class="screenshot-grid">
+                <a href="res/jellyarena-screenshot1.jpg" class="screenshot"><img src="res/jellyarena-screenshot1.jpg"></a>
+                <a href="res/jellyarena-screenshot2.jpg" class="screenshot"><img src="res/jellyarena-screenshot2.jpg"></a>
+            </div>
+        </div>
+        
+    </div>
+</body>

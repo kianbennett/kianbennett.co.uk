@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Projects | Kian Bennett</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <script src="https://kit.fontawesome.com/868b9e67e9.js" crossorigin="anonymous"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('navbar.html');
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-projects">
+        <div class="content-header">
+            Personal Games
+        </div>
+        <div class="content-body">
+            <div class="game-grid">
+                <a class="game-container" href="lutehero.html">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="res/thumb-lutehero.png">
+                    </div>
+                    <div class="game-name">Lute Hero</div>
+                </a>
+                <a class="game-container" href="ankhur.html">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="res/thumb-ankhur.png">
+                    </div>
+                    <div class="game-name">Ank'hur</div>
+                </a>
+                <a class="game-container" href="rsrc.html">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="res/thumb-rsrc.png">
+                    </div>
+                    <div class="game-name">[rs,rc]</div>
+                </a>
+                <a class="game-container" href="jellyarena.html">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="res/thumb-jellyarena.png">
+                    </div>
+                    <div class="game-name">Jelly Arena</div>
+                </a>
+            </div>
+        </div>
+        <div class="content-header">
+            University Games
+        </div>
+        <div class="content-body">
+            <div class="game-grid">
+                <a class="game-container" href="fluctus.html">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="res/thumb-fluctus.png">
+                    </div>
+                    <div class="game-name">Fluctus</div>
+                </a>
+                <a class="game-container" href="robohop.html">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="res/thumb-robohop.png">
+                    </div>
+                    <div class="game-name">RoboHop</div>
+                </a>
+                <a class="game-container" href="smashbots.html">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="res/thumb-smashbots.png">
+                    </div>
+                    <div class="game-name">Smash Bots</div>
+                </a>
+                <a class="game-container" href="acedefender.html">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="res/thumb-acedefender.png">
+                    </div>
+                    <div class="game-name">Ace Defender</div>
+                </a>
+            </div>
+        </div>
+        <div class="content-header">
+            Misc Programming
+        </div>
+        <div class="content-body">
+            <a class="prog-container" href = "https://github.com/KianBennett/SolsticeServer" target="_blank">
+                <div class="prog-name"><b>Solstice Server Emulator</b></div>
+                <div class="prog-desc">A server emulator for the long defunct MMO <i>Secret of the Solstice</i></div>
+                <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
+            </a>
+            <a class="prog-container" href="https://github.com/KianBennett/tcg-collector" target="_blank">
+                <div class="prog-name"><b>TCG Collector</b></div>
+                <div class="prog-desc">A web app for cataloguing one's <i>Yu-Gi-Oh!</i> card collection</div>
+                <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
+            </a>
+            <a class="prog-container" href="https://github.com/KianBennett/Yugioh-Database-Downloader" target="_blank">
+                <div class="prog-name"><b><i>Yu-Gi-Oh!</i> Database Downloader</b></div>
+                <div class="prog-desc">Scrapes information about each <i>Yu-Gi-Oh!</i> card from the wiki</div>
+                <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
+            </a>
+            <a class="prog-container" href="https://github.com/KianBennett/lol-ping-tool" target="_blank">
+                <div class="prog-name"><b>LoL Ping Tool</b></div>
+                <div class="prog-desc">A small Java applet to display ping to each League of Legends server</div>
+                <div class="prog-github" >View on Github<i class="fab fa-github"></i></div>
+            </a>
+            <a class="prog-container" href="https://github.com/KianBennett/kianbennett.co.uk" target="_blank">
+                <div class="prog-name"><b>This Website!</b></div>
+                <div class="prog-desc">This site is made with Sass and is fully responsive without the use of frameworks</div>
+                <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
+            </a>
+        </div>
+    </div>
+</body>
