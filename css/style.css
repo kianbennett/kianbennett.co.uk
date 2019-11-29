@@ -171,6 +171,7 @@ a {
   margin-right: 15px;
   position: relative;
   top: 10px;
+  margin-top: -15px;
 }
 .content .game-link {
   position: absolute;
