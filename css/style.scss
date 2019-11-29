@@ -2,6 +2,11 @@ body {
     margin: 0px;
     font-family: 'Alata', sans-serif;
     margin-bottom: 60px;
+    margin-top: 90px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 a {
@@ -75,7 +80,7 @@ a {
 
 #navbar {
     user-select: none; // can't highlight the text
-    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 20px rgb(220, 220, 220);
     padding: 0px calc((100% - 850px) / 2);
     height: 60px;
     position: fixed;
@@ -107,7 +112,7 @@ a {
             transition: top 0.1s;
         }
         .profile-pic-shadow {
-            box-shadow: inset 0px 2px 5px rgba(0, 0, 100, 0.5);
+            box-shadow: inset 0px 2px 5px rgb(106, 122, 148);
             position: absolute;
         }
 
@@ -132,6 +137,7 @@ a {
         font-size: 1.15em;
         color: rgb(120, 120, 120);
         height: 100%;
+        cursor: pointer;
 
         .highlight {
             width: 0px;
@@ -161,12 +167,22 @@ a {
     position: relative;
     width: 700px;
     margin-left: calc((100% - 700px) / 2);
-    margin-top: 80px;
-    text-align: justify;
+    // margin-top: 80px;
+    margin-bottom: 40px;
+    // text-align: justify;
 
     .content-header {
         font-size: 2em;
         margin-bottom: 20px;
+
+        .headshot {
+            width: 60px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 3px rgb(200, 200, 200);
+            margin-right: 15px;
+            position: relative;
+            top: 10px;
+        }
     }
 
     .game-link {
@@ -179,7 +195,7 @@ a {
         padding: 4px 6px;
         text-shadow: 1px 2px rgba(0, 0, 0, 0.2);
         color: white;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 2px 4px rgb(220, 220, 220);
         transition: all 0.1s;
 
         .fab {
@@ -218,7 +234,7 @@ a {
                     overflow: hidden;
                     height: 120px;
                     position: relative;
-                    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+                    box-shadow: 0px 2px 5px rgb(180, 180, 180);
                     transition: all 0.2s;
 
                     .game-thumbnail {
@@ -296,7 +312,7 @@ a {
 
                 img {
                     width: 100%;
-                    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
+                    box-shadow: 0px 2px 6px rgb(120, 120, 120);
                     border-radius: 6px;
                 }
             }

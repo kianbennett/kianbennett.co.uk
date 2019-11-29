@@ -2,6 +2,11 @@ body {
   margin: 0px;
   font-family: "Alata", sans-serif;
   margin-bottom: 60px;
+  margin-top: 90px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 a {
@@ -69,7 +74,7 @@ a {
 }
 #navbar {
   user-select: none;
-  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 20px gainsboro;
   padding: 0px calc((100% - 850px) / 2);
   height: 60px;
   position: fixed;
@@ -99,7 +104,7 @@ a {
   transition: top 0.1s;
 }
 #navbar .brand .profile-pic-shadow {
-  box-shadow: inset 0px 2px 5px rgba(0, 0, 100, 0.5);
+  box-shadow: inset 0px 2px 5px #6a7a94;
   position: absolute;
 }
 #navbar .brand #name {
@@ -119,6 +124,7 @@ a {
   font-size: 1.15em;
   color: #787878;
   height: 100%;
+  cursor: pointer;
 }
 #navbar .navbar-button .highlight {
   width: 0px;
@@ -152,12 +158,19 @@ a {
   position: relative;
   width: 700px;
   margin-left: calc((100% - 700px) / 2);
-  margin-top: 80px;
-  text-align: justify;
+  margin-bottom: 40px;
 }
 .content .content-header {
   font-size: 2em;
   margin-bottom: 20px;
+}
+.content .content-header .headshot {
+  width: 60px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 3px #c8c8c8;
+  margin-right: 15px;
+  position: relative;
+  top: 10px;
 }
 .content .game-link {
   position: absolute;
@@ -169,7 +182,7 @@ a {
   padding: 4px 6px;
   text-shadow: 1px 2px rgba(0, 0, 0, 0.2);
   color: white;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 4px gainsboro;
   transition: all 0.1s;
 }
 .content .game-link .fab {
@@ -206,7 +219,7 @@ a {
   overflow: hidden;
   height: 120px;
   position: relative;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 5px #b4b4b4;
   transition: all 0.2s;
 }
 .content .content-body .game-grid .game-container .game-thumbnail-container .game-thumbnail {
@@ -272,7 +285,7 @@ a {
 }
 .content .content-body .screenshot-grid .screenshot img {
   width: 100%;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 2px 6px #787878;
   border-radius: 6px;
 }
 

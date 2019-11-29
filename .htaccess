@@ -1,0 +1,101 @@
+Options +SymLinksIfOwnerMatch
+
+RewriteEngine On
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^(.*)/index\.html$ /$1/ [R=301,L]
+  
+AuthName "kianbennett.co.uk"
+AuthUserFile "/home/bhisdgeo/.htpasswds/public_html/kianbennett.co.uk/passwd"
+
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+BrowserMatchNoCase Baiduspider bad_bot
+BrowserMatchNoCase yandex bad_bot
+BrowserMatchNoCase AhrefsBot bad_bot
+BrowserMatchNoCase linkdexbot bad_bot
+BrowserMatchNoCase Ezooms bad_bot
+BrowserMatchNoCase Vagabondo bad_bot
+BrowserMatchNoCase oBot bad_bot
+BrowserMatchNoCase 008 bad_bot
+BrowserMatchNoCase MJ12bot bad_bot
+BrowserMatchNoCase Sogou web spider bad_bot
+BrowserMatchNoCase SolomonoBot bad_bot
+BrowserMatchNoCase TurnitinBot bad_bot
+BrowserMatchNoCase Exabot bad_bot
+BrowserMatchNoCase SurveyBot bad_bot
+BrowserMatchNoCase SeznamBot bad_bot
+BrowserMatchNoCase Aboundexbot bad_bot
+BrowserMatchNoCase SemrushBot bad_bot
+BrowserMatchNoCase PagesInventory bad_bot
+BrowserMatchNoCase JikeSpider bad_bot
+BrowserMatchNoCase BLEXBot bad_bot
+BrowserMatchNoCase sistrix bad_bot
+BrowserMatchNoCase 360Spider bad_bot
+BrowserMatchNoCase WBSearchBot bad_bot
+BrowserMatchNoCase niki-bot bad_bot
+BrowserMatchNoCase EasouSpider bad_bot
+BrowserMatchNoCase CCBot bad_bot
+BrowserMatchNoCase Nutch bad_bot
+BrowserMatchNoCase NerdyBot bad_bot
+BrowserMatchNoCase NetcraftSurveyAgent bad_bot
+BrowserMatchNoCase ContextAd Bot bad_bot
+BrowserMatchNoCase meanpathbot bad_bot
+BrowserMatchNoCase IstellaBot bad_bot
+BrowserMatchNoCase XoviBot bad_bot
+BrowserMatchNoCase GrapeshotCrawler bad_bot
+BrowserMatchNoCase Twitterbot bad_bot
+BrowserMatchNoCase TrueBot bad_bot
+BrowserMatchNoCase GigablastOpenSource bad_bot
+BrowserMatchNoCase 007ac9 Crawler bad_bot
+BrowserMatchNoCase DuckDuckGo-Favicons-Bot bad_bot
+Order Deny,Allow
+Deny from env=bad_bot
+deny from 104.193.88.0/22
+deny from 202.46.32.0/19
+deny from 46.161.41.24
+deny from 119.63.192.0/21
+deny from 63.217.158.50
+deny from 108.178.0.0/18
+deny from 184.154.0.0/16
+deny from 173.236.0.0/17
+deny from 69.175.0.0/17
+deny from 198.143.128.0/18
+deny from 123.125.71.0/24
+deny from 220.181.0.0/16
+deny from 82.80.249.170
+deny from 46.161.41.31
+deny from 46.161.41.199
+deny from 144.76.3.101
+deny from 124.2.53.151
+deny from 144.76.63.202
+deny from 188.40.88.209
+deny from 88.198.53.44
+deny from 46.4.76.177
+deny from 5.9.2.67
+deny from 88.198.71.236
+deny from 180.76.4.110
+deny from 180.76.4.193
+deny from 179.43.178.42
+deny from 46.4.113.114
+deny from 192.227.128.0/17
+deny from 172.245.0.0/16
+deny from 198.12.64.0/18
+deny from 173.44.32.0/19
+deny from 69.12.64.0/19
+deny from 23.94.12.0/22
+deny from 23.94.48.0/21
+deny from 107.172.0.0/20
+deny from 192.3.56.0/22
+deny from 204.44.64.0/18
+deny from 213.184.125.106
+deny from 31.220.30.224
+deny from 23.236.246.0/25
+deny from 192.3.165.128/25
+deny from 192.3.164.0/23
+deny from 23.94.32.0/20
+deny from 198.23.128.0/17
+deny from 192.3.0.0/16
+deny from 208.80.192.0/21
