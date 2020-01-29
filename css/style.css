@@ -313,4 +313,30 @@ a {
   color: #356eb8;
 }
 
+.tech-label {
+  border-radius: 10px;
+  position: relative;
+  margin-left: 3px;
+  left: 5px;
+  bottom: 2px;
+  color: white;
+  font-size: 0.7em;
+  padding: 0px 6px;
+}
+.tech-label.label-cplusplus {
+  background-color: #6e8cb5;
+}
+.tech-label.label-csharp {
+  background-color: #8384d6;
+}
+.tech-label.label-java {
+  background-color: #cf792d;
+}
+.tech-label.label-html {
+  background-color: #84a172;
+}
+.tech-label.label-scss {
+  background-color: #a372ab;
+}
+
 /*# sourceMappingURL=style.css.map */

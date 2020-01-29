@@ -220,6 +220,9 @@ a {
     .content-body {
         margin-bottom: 20px;
         font-size: 1.1em;
+        // a {
+        //     font-weight: bold;
+        // }
 
         .game-grid {
             display: flex; // display the containers in a flex grid
@@ -335,4 +338,22 @@ a {
         &.icon-play { color: rgb(73, 186, 114); }
         &.icon-linkedin { color: rgb(53, 110, 184); }
     }
+}
+
+.tech-label {
+    border-radius: 10px;
+    position: relative;
+    margin-left: 3px;
+    left: 5px;
+    bottom: 2px;
+    color: white;
+    font-size: 0.7em;
+    padding: 0px 6px;
+    // box-shadow: 0px 2px 1px rgb(200, 200, 200);
+
+    &.label-cplusplus { background-color: rgb(110, 140, 181); }
+    &.label-csharp { background-color: rgb(131, 132, 214); }
+    &.label-java { background-color: rgb(207, 121, 45); }
+    &.label-html { background-color: rgb(132, 161, 114); }
+    &.label-scss { background-color: rgb(163, 114, 171); }
 }
