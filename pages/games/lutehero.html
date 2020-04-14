@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Lute Hero | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Lute Hero
+            <div class="label-container">
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span>
+            </div>
+        </div>
+        <a class="game-link itch-link" href="https://kbennett.itch.io/lutehero" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                Lute Hero is an rpg/rhythm game in a medieval setting. It was made with Unity/C# and the art style was inspired by Final Fantasy VI.
+                Some notable features include:
+                <ul>
+                    <li>Detailed rhythm input system for playing notes of a song</li>
+                    <li>Turn-based combat</li>
+                    <li>Inventory with equippable and consumable items</li>
+                    <li>Multiple towns, each with their set of townsfolk with individual daily routines 
+                        (pathfinding with <a href="https://arongranberg.com/astar/" ref="_blank">Aron Granberg's A* Pathfinding Project</a>)</li>
+                    <li>Song chart parser allowing for custom songs to be loaded into the game (cross compatible with custom Guitar Hero charts)</li>
+                </ul>
+
+                The song recordings are by <a href="http://www.jsayles.com/familypages/earlymusic.htm" target="_blank">Jon Sayles</a>.
+            </div>
+
+            <div class="screenshot-grid">
+                <a href="/res/screenshots/lutehero-screenshot1.jpg" class="screenshot"><img src="/res/screenshots/lutehero-screenshot1.jpg"></a>
+                <a href="/res/screenshots/lutehero-screenshot2.jpg" class="screenshot"><img src="/res/screenshots/lutehero-screenshot2.jpg"></a>
+                <a href="/res/screenshots/lutehero-screenshot3.jpg" class="screenshot"><img src="/res/screenshots/lutehero-screenshot3.jpg"></a>
+                <a href="/res/screenshots/lutehero-screenshot4.jpg" class="screenshot"><img src="/res/screenshots/lutehero-screenshot4.jpg"></a>
+            </div>
+        </div>
+        
+    </div>
+</body>

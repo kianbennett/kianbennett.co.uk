@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Smash Bots | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Smash Bots
+            <div class="label-container">
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span>
+            </div>
+        </div>
+        <a class="game-link itch-link" href="https://kianbennett.itch.io/the-incredible-grasshopper-smash-bots" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                Smash Bots was made over two weeks in teams of five to fit the theme 'fighting game'.
+                Two players choose a robot (each with slightly different stats) and can jump, punch, block and shoot
+                to win a best of three fight. The game also features fully customisable key bindings.
+                <br><br>
+                As the group's programmer I worked closely with the artist to ensure the animations matched the
+                movement and correctly telegraphed the players actions (essential in a fighting game), 
+                and I believe the result is user inputs that feel satisfying and responsive.
+                <br><br>
+                Smash Bots was made in Unity with C# and was ranked 
+                <a href="https://itch.io/jam/tdemo-1920-week-3-and-4-jam/results" target="_blank">1<sup>st</sup></a> in our year group.
+                <div class="screenshot-grid">
+                    <a href="/res/screenshots/smashbots-screenshot1.jpg" class="screenshot"><img src="/res/screenshots/smashbots-screenshot1.jpg"></a>
+                    <a href="/res/screenshots/smashbots-screenshot2.jpg" class="screenshot"><img src="/res/screenshots/smashbots-screenshot2.jpg"></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>

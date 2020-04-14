@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Ank'Hur | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'image',
+                gallery: { enabled: true },
+                callbacks: {
+                    // Disable scrolling while image is open
+                    // open: function() { $('body').css('overflow', 'hidden'); },
+                    // close: function() { $('body').css('overflow', ''); },
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Ank'hur
+            <div class="label-container">
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-android">Android</span>
+            </div>
+        </div>
+        <a class="game-link itch-link" href="https://kbennett.itch.io/ankhur" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <a class="game-link play-link" href="https://play.google.com/store/apps/details?id=com.kianbennett.ankhur" target="_blank">Play Store<i class="fab fa-google-play"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                Ank'hur is a puzzle game made from a board of sliding blocks. 
+                The goal of the game is to get each basic block into a target square - 
+                the player can tilt the board one of four directions and different blocks will slide in different ways.
+                <ul>
+                    <li>Five sets of five levels, each set introducing a new type of block</li>
+                    <li>Create your own levels and upload them for others to play! The block list is serialised as 
+                        a string and uploaded as a highscore to <a href="http://dreamlo.com/" target="_blank">dreamlo</a></li>
+                    <li>Extensive use of Unity custom inspectors to facilitate debugging and level creation</li>
+                    <li>Discord Rich Presence</li>
+                </ul>
+
+                I've also ported Ank'hur to Android and it's now available on the <a href="https://play.google.com/store/apps/details?id=com.kianbennett.ankhur" target="_blank">Play Store</a>!
+                The UI has had an overhaul as well as optimisations to make it suitable for mobile.
+            </div>
+            <div class="screenshot-grid">
+                <a href="/res/screenshots/ankhur-screenshot1.jpg" class="screenshot"><img src="/res/screenshots/ankhur-screenshot1.jpg"></a>
+                <a href="/res/screenshots/ankhur-screenshot2.jpg" class="screenshot"><img src="/res/screenshots/ankhur-screenshot2.jpg"></a>
+                <a href="/res/screenshots/ankhur-screenshot3.jpg" class="screenshot"><img src="/res/screenshots/ankhur-screenshot3.jpg"></a>
+            </div>
+        </div>
+    </div>
+</body>

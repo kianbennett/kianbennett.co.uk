@@ -1,0 +1,13 @@
+- Screenshot of Ank'hur custom editor
+- Think of a better name for [rs,rc] lmao
+- Compress fluctus screenshots
+- Custom error pages
+- Gameplay videos
+
+Article ideas
+- Parsing guitar hero charts for lute hero
+- Displaying 3D objects in UI elements
+- Custom levels as highscores in dreamlo
+x Spherical world shader graph
+- Colour palettes in unity inspector
+- Structuring games for max portability

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Fluctus | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Fluctus
+            <div class="label-container">
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-android">Android</span><span class="tech-label label-cplusplus">C++</span>
+            </div>
+        </div>
+        <a class="game-link itch-link" href="https://kianbennett.itch.io/fluctus" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <a class="game-link play-link" href="https://play.google.com/store/apps/details?id=com.kianbennett.Fluctus" target="_blank">Play Store<i class="fab fa-google-play"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                Fluctus was made in Unity in a week to fit the theme of 'hyper-casual single input game'.
+                The curve of the level is generated from a sine wave with varying amplitude and frequency affecting the difficulty.
+                The player can upload their score to an online leaderboard facilitated by <a href="http://dreamlo.com/"><b>dreamlo</b></a>.
+                <br><br>
+                Because of Fluctus' simple geometry and game logic I have used it when learning to develop for new platforms, 
+                in particular homebrew console apps. I've rewritten Fluctus in C++ and ported it to the 
+                <a href="https://github.com/KianBennett/fluctus-nx" target="_blank">Switch</a>, <a href="https://github.com/KianBennett/fluctus-3ds" target="_blank">3DS</a> and <a href="https://github.com/KianBennett/fluctus-wiiu" target="_blank">Wii U</a> 
+                using the devkitPro toolchain.
+            </div>
+            <div class="screenshot-grid">
+                <a href="/res/screenshots/fluctus-screenshot1.png" class="screenshot"><img src="/res/screenshots/fluctus-screenshot1.png"></a>
+                <a href="/res/screenshots/fluctus-screenshot2.png" class="screenshot"><img src="/res/screenshots/fluctus-screenshot2.png"></a>
+                <!-- <a href="res/fluctus-screenshot3.jpg" class="screenshot"><img src="res/fluctus-screenshot3.jpg"></a> -->
+            </div>
+        </div>
+        
+    </div>
+</body>

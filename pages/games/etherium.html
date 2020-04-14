@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Etherium | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'iframe',
+                gallery: {
+                    enabled: true
+                },
+                callbacks: {
+                    elementParse: function(item) {
+                        // Add vidoe class to change type to video
+                        if(item.el[0].classList.contains('video')) {
+                            item.type = 'iframe';
+                        } else {
+                            item.type = 'image';
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Etherium
+            <div class="label-container">
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-procgen">ProcGen</span>
+            </div>
+        </div>
+        <a class="game-link itch-link" href="https://kianbennett.itch.io/etherium" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                Etherium is a grid-based RTS where you create units and build structures to gather resources and destroy your enemy's base,
+                made for the 2020 <a href="https://gradsingames.com/game-dev-challenges/rising-star/" target="_blank">Sumo Digital Rising Star</a>
+                programming challenge where it was ranked <a href="https://itch.io/jam/sfasx-games-programming/results/technical" target="_blank">1<sup>st</sup></a> 
+                in the technical and <a href="https://itch.io/jam/sfasx-games-programming/results" target="_blank">2<sup>nd</sup></a> in the game assessment.
+                <ul>
+                    <li>Floating islands generated with Perlin noise and spread out with Mitchell's best candidate algorithm</li>
+                    <li>A* pathfinding to move units between tiles</li>
+                    <li>3D objects displayed in UI elements</li>
+                    <li>Harvester, Builder, Fighter and Scout unit types</li>
+                    <li>Gem resource to build and repair units, minerals to build and repair structures</li>
+                </ul>
+                As a part of the challenge I wrote a document detailing the development process and technical challenges I faced, 
+                and can be viewed <a href="https://docs.google.com/document/d/1S0WQeqa8gycETFhE4o0B2sO82sJsG5jUC-wIv-1Nhgk/edit?usp=sharing" target="_blank">here</a>.
+                The source code is also available on Bitbucket <a href="https://bitbucket.org/kianbennett/sfasx/src/master/", target="_blank">here</a>.
+            </div>
+            
+            <div class="screenshot-grid">
+                <!-- <a href="res/videos/video.mp4" class="screenshot video"><img src="res/videos/video-thumbnail.png"></a> -->
+                <a href="/res/screenshots/etherium-screenshot1.jpg" class="screenshot"><img src="/res/screenshots/etherium-screenshot1.jpg"></a>
+                <a href="/res/screenshots/etherium-screenshot2.jpg" class="screenshot"><img src="/res/screenshots/etherium-screenshot2.jpg"></a>
+            </div>
+        </div>
+        
+    </div>
+</body>

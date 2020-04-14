@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Blog | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.image').magnificPopup({
+                // delegate: 'a', // child items selector
+                type: 'image',
+                callbacks: {
+                    // Disable scrolling while image is open
+                    open: function() { $('body').css('overflow', 'hidden'); },
+                    close: function() { $('body').css('overflow', ''); },
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Spherical World Effect in Shader Graph
+            <div class="label-container">
+                <span class="article-date">13<sup>th</sup> April 2020</span>
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-shadergraph">Shader Graph</span>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="content-text">
+                <div class="image-container">
+                    <div><video src="/res/blog/sphere-shader-graph/final.mp4" width="384" autoplay loop muted></div>
+                </div>
+                
+                This goal of this shader is to distort geometry around an origin point (e.g. player position)
+                as though wrapped around a sphere. It's inspired by <a href="https://twitter.com/danielsantalla/status/1243709133867499521" target="_blank">Daniel Santalla's Animal Crossing effect</a>
+                but expands on it by properly calculating the position on a circumference rather than just offsetting 
+                by an exponential value.
+
+                <br><br>
+
+                Let's start with just the z axis - offsetting around a 2D circle - then move to a sphere.              
+                The basic concept is to use the z distance from the origin as the arc length to calculate the
+                angle around the circle each vertex should be placed.
+                
+                <div class="image-container">
+                    <a href="/res/blog/sphere-shader-graph/diagram1.jpg" class="image"><img src="/res/blog/sphere-shader-graph/diagram1.jpg" width="440"></a>
+                    <div class="image-label">The scene as viewed from an orthographic side view</div>
+                </div>
+
+                The coordinates for a point on a circle can be found with:
+                <br><br>
+                <div class="equation-container">
+                    x = r * sin(θ)<br>
+                    y = r * cos(θ)
+                </div>
+                <br>
+
+                Where <span class="equation">r</span> is the circle's radius + vertex y coordinate. To find <span class="equation">θ</span> we can use:
+                <br><br>
+                <div class="equation-container">
+                    θ = d / r
+                </div>
+                <br>
+
+                Where d is simply the z distance from the origin.
+
+                Let's put this all into Shader Graph:
+
+                <div class="image-container">
+                    <a href="/res/blog/sphere-shader-graph/graph1.jpg" class="image"><img src="/res/blog/sphere-shader-graph/graph1.jpg" width="440"></a>
+                </div>
+
+                First we get the distance from the origin and split it into it's x, y and z components.
+
+                <div class="image-container">
+                    <a href="/res/blog/sphere-shader-graph/graph2.jpg" class="image"><img src="/res/blog/sphere-shader-graph/graph2.jpg" width="440"></a>
+                </div>
+
+                Next we can get <span class="equation">θ</span> by dividing <span class="equation">d</span> 
+                (z distance) by the radius. We'll need to multiply this
+                by -1 and add 90° to it (1.57~ radians) to get the angle from the vertical axis. 
+                Complete the equation, subtracting the radius from the y value as the centre of
+                the circle is at origin.y - radius. The x value remains unchanged.
+
+                <div class="image-container">
+                    <a href="/res/blog/sphere-shader-graph/graph3.jpg" class="image"><img src="/res/blog/sphere-shader-graph/graph3.jpg" width="440"></a>
+                </div>
+
+                Finally we can add this new position to the origin and transform it from world to object space.
+
+                <div class="image-container">
+                    <div><video src="/res/blog/sphere-shader-graph/2d bend.mp4" width="384" autoplay loop muted></div>
+                    <div class="image-label">Our shader in action</div>
+                </div>
+
+                The process for caculating a point on the surface of a sphere uses the same principles.
+
+                <br><br>
+                <div class="equation-container">
+                    x = r * cos(θ) * sin(ϕ) <br>
+                    y = r * sin(θ) * sin(ϕ) <br>
+                    z = r * cos(ϕ)
+                </div>
+                <br>
+
+                Where <span class="equation">θ</span> is the <b>longitude</b>, the angle along the z/y plane 
+                (the same angle we've been working
+                with so far) and <span class="equation">ϕ</span> is the <b>colatitude</b>, the angle along the x/y plane.
+
+                <div class="image-container">
+                    <a href="/res/blog/sphere-shader-graph/graph4.jpg" class="image"><img src="/res/blog/sphere-shader-graph/graph4.jpg" width="440"></a>
+                    <div class="image-label">Shader graph can get a bit messy (sub-graphs can help)</div>
+                </div>
+
+                We'll replace the middle section of our graph with new calculations for x, y and z.
+
+                <div class="image-container">
+                    <div><video src="/res/blog/sphere-shader-graph/final.mp4" width="384" autoplay loop muted></div>
+                    <div class="image-label">The final result</div>
+                </div>
+
+                This shader does come with limitations: while an object has it's vertices transformed it's render
+                bounds remains unchanged. This means the object can leave the camera's view frustum while it's mesh is still
+                on screen, causing the object to dissapear if the camera is at a certain angle. Therefore this shader
+                is best suited for games with fixed camera angles.
+            </div>
+        </div>
+        <div class="content-footer">
+            <a class="link-icon icon-twitter" href="https://twitter.com/_kianbennett" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a class="link-icon icon-linkedin" href="https://www.linkedin.com/in/kian-bennett-2792a5b3/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a class="link-icon icon-itch" href="https://kianbennett.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>
+            <a class="link-icon icon-github" href="https://github.com/kianbennett" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</body>

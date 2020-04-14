@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Ace Defender | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'image',
+                gallery: { enabled: true }, 
+                callbacks: {
+                    // Disable scrolling while image is open
+                    open: function() { $('body').css('overflow', 'hidden'); },
+                    close: function() { $('body').css('overflow', ''); },
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Ace Defender
+            <div class="label-container">
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span>
+            </div>
+        </div>
+        <a class="game-link itch-link" href="https://kianbennett.itch.io/ace-defender" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                Ace Defender was made over three weeks in groups of six to fit the theme 'Star Fox / R-Type'.
+                The player must control their ship to shoot oncoming enemies with varying movement/shooting patterns,
+                and can of course do a barrel roll to deflect enemy shots.
+                There is an intro cutscene and tutorial level explaining the game's controls led by a charming companion character.
+                <br><br>
+                I didn't have time to flesh out the gameplay as much as I wanted - there is only one type of attack and the enemy types
+                are identical with different movement/shooting patterns. I'm happy with the aiming/movement system but
+                there were issues with some enemies being outside the player's range.
+                <br><br>
+                Ace Defencder was made in Unity with C# - I took the role of programmer and designer in our group.
+                It ranked <a href="https://itch.io/jam/tdemo-1920-week-56-and-7-jam/results" target="_blank">2<sup>nd</sup></a> in our year group.
+            </div>
+            <div class="screenshot-grid">
+                <a href="/res/screenshots/acedefender-screenshot1.jpg" class="screenshot"><img src="/res/screenshots/acedefender-screenshot1.jpg"></a>
+                <a href="/res/screenshots/acedefender-screenshot2.jpg" class="screenshot"><img src="/res/screenshots/acedefender-screenshot2.jpg"></a>
+            </div>
+        </div>
+        
+    </div>
+</body>
