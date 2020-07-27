@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+    <title>What Makes Us | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'iframe',
+                gallery: {
+                    enabled: true
+                },
+                callbacks: {
+                    elementParse: function(item) {
+                        // Add vidoe class to change type to video
+                        if(item.el[0].classList.contains('video')) {
+                            item.type = 'iframe';
+                        } else {
+                            item.type = 'image';
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            What Makes Us
+            <div class="label-container">
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-team">Teamwork</span>
+            </div>
+        </div>
+        <a class="game-link itch-link" href="https://kianbennett.itch.io/what-makes-us" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                What Makes Us is a children’s puzzle game themed around emotions, targeted towards 6-9 year olds. You play as a robot completing a series of challenges in order to better understand human emotions so he can fit in with his human friends. There are 5 levels based on Happiness, Anger, Sadness, Fear and Envy each with their own puzzles and challenges.
+                <br><br>
+                It was made as a group project for university in a team of 8, in which it took the role of project manager and programmer.
+            </div>
+            
+            <div class="screenshot-grid">
+                <a href="https://drive.google.com/file/d/1P9uLOCalpMmeQpk27eFFdXOeipniQXcY/preview" class="screenshot video"><img src="/res/videos/whatmakesus-video-thumbnail.jpg"></a>
+                <a href="/res/screenshots/whatmakesus-screenshot1.png" class="screenshot"><img src="/res/screenshots/whatmakesus-screenshot1.png"></a>
+                <a href="/res/screenshots/whatmakesus-screenshot2.png" class="screenshot"><img src="/res/screenshots/whatmakesus-screenshot2.png"></a>
+                <a href="/res/screenshots/whatmakesus-screenshot3.png" class="screenshot"><img src="/res/screenshots/whatmakesus-screenshot3.png"></a>
+                <a href="/res/screenshots/whatmakesus-screenshot4.png" class="screenshot"><img src="/res/screenshots/whatmakesus-screenshot4.png"></a>
+                <a href="/res/screenshots/whatmakesus-screenshot5.png" class="screenshot"><img src="/res/screenshots/whatmakesus-screenshot5.png"></a>
+                <a href="/res/screenshots/whatmakesus-screenshot6.png" class="screenshot"><img src="/res/screenshots/whatmakesus-screenshot6.png"></a>
+            </div>
+        </div>
+        
+    </div>
+</body>

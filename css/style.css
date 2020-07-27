@@ -214,6 +214,10 @@ a {
   right: 150px;
   margin-left: 5px;
 }
+.content .github-link {
+  background-color: #9553b4;
+  border: 1px solid #79236d;
+}
 .content .content-body {
   margin-bottom: 30px;
   font-size: 1.05em;
@@ -249,10 +253,13 @@ a {
   transition: all 0.2s;
 }
 .content .content-body .game-grid .game-container .game-name {
-  font-size: 1.3em;
+  font-size: 1.4em;
   text-align: center;
   color: #787878;
   transition: all 0.1s;
+}
+.content .content-body .game-grid .game-container .label-container {
+  text-align: center;
 }
 .content .content-body .game-grid .game-container:hover .game-thumbnail {
   transform: scale(1.05);
@@ -409,7 +416,10 @@ a {
   background-color: #df534e;
 }
 .tech-label.label-shadergraph {
-  background-color: #c5ac3a;
+  background-color: #d1b01d;
+}
+.tech-label.label-team {
+  background-color: #4cc4a6;
 }
 
 .article-date, .image-label {

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Brewstone | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'iframe',
+                gallery: {
+                    enabled: true
+                },
+                callbacks: {
+                    elementParse: function(item) {
+                        // Add vidoe class to change type to video
+                        if(item.el[0].classList.contains('video')) {
+                            item.type = 'iframe';
+                        } else {
+                            item.type = 'image';
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Brewstone
+            <div class="label-container">
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span>
+            </div>
+        </div>
+        <a class="game-link itch-link" href="https://emmy-x3x.itch.io/brewstone" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                Brewstone was made in a team of 4 for the <a href="https://sites.google.com/port.ac.uk/universitygamejam/home?authuser=0" target="_blank">University of Portsmouth Game Jam 2020</a>
+                where it won awards for Best Design, Best Overall and People's Choice. I took the role of programmer and 3D animator.
+                <br><br>
+                We tried to incorporate all three of the Jam' themes in our game: the abandoned village of <a href="https://en.wikipedia.org/wiki/Bockhampton,_Berkshire" target="_blank">Bockhampton</a>,
+                the microbiologist <a href="https://en.wikipedia.org/wiki/Jillian_Banfield" target="_blank">Jillian Banfield</a> and a <a href="https://en.wikipedia.org/wiki/Curling" target="_blank">1999 Canadian curling tournament</a>.
+                You play as a robot who brews potions in his belly from ingredients you pick up around the world,
+                and launch those potions on curling stones to attack enemies and clear obstacles.
+            </div>
+            
+            <div class="screenshot-grid">
+                <a href="https://drive.google.com/file/d/1D7qTEOOwqXD9dVBAuM5_rS5UjTsSzxx5/preview" class="screenshot video"><img src="/res/videos/brewstone-video-thumbnail.png"></a>
+                <a href="/res/screenshots/brewstone-screenshot1.jpg" class="screenshot"><img src="/res/screenshots/brewstone-screenshot1.jpg"></a>
+                <a href="/res/screenshots/brewstone-screenshot2.jpg" class="screenshot"><img src="/res/screenshots/brewstone-screenshot2.jpg"></a>
+                <a href="/res/screenshots/brewstone-screenshot3.jpg" class="screenshot"><img src="/res/screenshots/brewstone-screenshot3.jpg"></a>
+            </div>
+        </div>
+        
+    </div>
+</body>

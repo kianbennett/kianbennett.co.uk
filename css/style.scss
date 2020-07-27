@@ -224,6 +224,10 @@ a {
         right: 150px;
         margin-left: 5px;
     }
+    .github-link {
+        background-color: rgb(149, 83, 180);
+        border: 1px solid rgb(121, 35, 109);
+    }
 
     .content-body {
         margin-bottom: 30px;
@@ -266,10 +270,13 @@ a {
                     }
                 }
                 .game-name {
-                    font-size: 1.3em;
+                    font-size: 1.4em;
                     text-align: center;
                     color: rgb(120, 120, 120);
                     transition: all 0.1s;
+                }
+                .label-container {
+                    text-align: center;
                 }
 
                 &:hover {
@@ -428,7 +435,8 @@ a {
     &.label-unity { background-color: rgb(107, 110, 112); }
     &.label-android { background-color: rgb(59, 189, 98); }
     &.label-procgen { background-color: rgb(223, 83, 78); }
-    &.label-shadergraph { background-color: rgb(197, 172, 58); }
+    &.label-shadergraph { background-color: rgb(209, 176, 29); }
+    &.label-team { background-color: #4cc4a6; }
 }
 
 .article-date, .image-label {

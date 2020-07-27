@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Bottomless Crypt | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'iframe',
+                gallery: {
+                    enabled: true
+                },
+                callbacks: {
+                    elementParse: function(item) {
+                        // Add vidoe class to change type to video
+                        if(item.el[0].classList.contains('video')) {
+                            item.type = 'iframe';
+                        } else {
+                            item.type = 'image';
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Bottomless Crypt
+            <div class="label-container">
+                <span class="tech-label label-cplusplus">C++</span><span class="tech-label label-procgen">ProcGen</span>
+            </div>
+        </div>
+        <a class="game-link github-link" href="https://github.com/KianBennett/Bottomless-Crypt" target="_blank">View on Github<i class="fab fa-github"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                Bottomless Crypt is a roguelike with randomly generated dungeons using binary space partitioning. 
+                Corridors are made using A* to find paths between rooms, and the entire program is written as an Entity-Component-System.
+            </div>
+            
+            <div class="screenshot-grid">
+                <a href="https://drive.google.com/file/d/1oE9u1NJRlxa-hdNyv-fN8ZEsSNmZoxJ5/preview" class="screenshot video"><img src="/res/videos/bottomlesscrypt-video-thumbnail.jpg"></a>
+                <a href="/res/screenshots/bottomlesscrypt-screenshot1.jpg" class="screenshot"><img src="/res/screenshots/bottomlesscrypt-screenshot1.jpg"></a>
+            </div>
+        </div>
+        
+    </div>
+</body>

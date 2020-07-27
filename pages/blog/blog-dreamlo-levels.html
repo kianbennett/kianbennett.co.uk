@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 
 <head>
-    <title>About Me | Kian Bennett</title>
+    <title>Blog | Kian Bennett</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
     <script>
         // use jquery to replace #nav-placeholder with the contents of navbar.html
         // able to reuse the same navbar across every page
         $(function() {
             $('#nav-placeholder').load('/navbar.html');
+            $('.image').magnificPopup({
+                // delegate: 'a', // child items selector
+                type: 'image',
+                callbacks: {
+                    // Disable scrolling while image is open
+                    open: function() { $('body').css('overflow', 'hidden'); },
+                    close: function() { $('body').css('overflow', ''); },
+                }
+            });
         });
     </script>
 </head>
@@ -22,24 +32,14 @@
     <div id="nav-placeholder"></div>
     <div class="content" id="content-about">
         <div class="content-header">
-            <img class="headshot" src="/res/profile-pic.jpg">About Me
+            Sharing Custom Levels With Dreamlo
+            <div class="label-container">
+                <span class="article-date">12th<sup>th</sup> July 2020</span>
+                <span class="tech-label label-unity">Unity</span>
+            </div>
         </div>
         <div class="content-body">
             <div class="content-text">
-                I'm Kian, a first year Computer Games Technology student at the University of Portsmouth, 
-                specialising in programming. I am particularly interested in creating gameplay systems 
-                but I am passionate about all areas of game development. I have been making games for years 
-                outside of school, covering a variety of genres and art styles, and I am always eager to learn
-                new concepts. 
-                <br><br>
-                Earlier this year I was a finalist in the <a href="https://gradsingames.com/game-dev-challenges/rising-star/" target="_blank">Sumo Digital Rising Star</a> 
-                programming category with my game <a href="/pages/games/etherium">Etherium</a>, and in the summer
-                my team and I won awards for Best Design, Best Overall and People's Choice in the 
-                <a href="https://sites.google.com/port.ac.uk/universitygamejam/home?authuser=0" target="_blank">University of Portsmouth Game Jam</a>
-                with our game <a href="/pages/games/brewstone">Brewstone</a>.
-                <br><br>
-                I enjoy playing the guitar, reading fantasy novels and listening to prog rock. I'm excited to 
-                continue to develop my skills at university!
             </div>
         </div>
         <div class="content-footer">
