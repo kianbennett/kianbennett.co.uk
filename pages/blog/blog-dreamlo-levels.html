@@ -7,8 +7,9 @@
     <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-okaidia.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="/js/jquery.magnific-popup.min.js"></script>
     <script>
         // use jquery to replace #nav-placeholder with the contents of navbar.html
@@ -34,12 +35,173 @@
         <div class="content-header">
             Sharing Custom Levels With Dreamlo
             <div class="label-container">
-                <span class="article-date">12th<sup>th</sup> July 2020</span>
+                <span class="article-date">19<sup>th</sup> August 2020</span>
                 <span class="tech-label label-unity">Unity</span>
             </div>
         </div>
         <div class="content-body">
-            <div class="content-text">
+            <div class="content-text language-csharp">
+                <a href="/pages/games/ankhur.html">Ank’hur</a> is a puzzle game where players slide pieces around a board, 
+                with levels being made up of a list of pieces arranged on a grid. A core element of the game I wanted 
+                to include was creating custom levels, and I needed a low-cost, reliable way for users to share those levels from within the game.
+
+                <div class="image-container">
+                    <a href="/res/blog/dreamlo-levels/user-levels-screenshot.jpg" class="image"><img src="/res/blog/dreamlo-levels/user-levels-screenshot.jpg" width="240"></a>
+                    <a href="/res/blog/dreamlo-levels/game-screenshot.jpg" class="image"><img src="/res/blog/dreamlo-levels/game-screenshot.jpg" width="240"></a>
+                </div>
+
+                <a href="http://dreamlo.com/" target="_blank">Dreamlo</a> is a free service that provides highscores and promo codes that can be changed/retrieved with a simple HTTP GET request. 
+                Each highscore is stored with two strings (usually used, for example, to store a player name and comment), two integers 
+                (for example a score value and a time value), the date the score was uploaded and the index in the leaderboard. We can use 
+                these fields to store a serialised version of user-created levels and accompanying meta-data such as the level’s name and the 
+                number of ‘likes’ it has. We’ll also need to include the size of the board.
+
+                <div class="image-container">
+                    <a href="/res/blog/dreamlo-levels/data-screenshot.jpg" class="image"><img src="/res/blog/dreamlo-levels/data-screenshot.jpg" width="400"></a>
+                    <div class="image-label">Dreamlo highscores as retrieved in JSON format</div>
+                </div>
+
+                Each level in Ank’hur is made up of a list of pieces, and we can form a string from this list by giving each piece a single 
+                character for its position and one for its type, starting the string with the width and height of the board:
+
+                <br><br>
+                <pre><code>
+                    // To keep the level string somewhat readable, limit the characters used to letters and numbers
+                    const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                    // The first two characters are the width and height of the board
+                    string levelString = chars[boardWidth] + "" + chars[boardHeight];
+
+                    for (int j = 0; j < boardHeight; j++) {
+                        // Row is an array of PieceType values
+                        Row row = Rows[j];
+                        for (int i = 0; i < boardWidth; i++) {
+                            if (row.Pieces[i] != PieceType.Blank) {
+                                levelString += chars[j * boardWidth + i];
+                                levelString += chars[(int) row.Pieces[i]];
+                            }
+                        }
+                    }
+                </code></pre>
+                <br>
+                                
+                When uploading to dreamlo, we’ll use this string as the highscore name, which will also ensure there will be no duplicate levels. 
+                The second string can be used for the level’s name, and one integer (the actual score) for the number of ‘likes’ other players 
+                have given the level. To upload/retrieve the scores we’ll build our URL and send the GET request with UnityWebRequest:
+                
+                <br><br>
+                <pre><code>
+                    // Send the request asynchronously as a coroutine
+                    public static IEnumerator UploadLevel(string levelString, string levelName) {
+                        string url = "http://dreamlo.com/lb/" + PRIVATE_KEY + "/add/" + levelString + "/0/0/" + levelName;
+                        
+                        UnityWebRequest request = UnityWebRequest.Get(url);
+                        request.timeout = 5;
+
+                        Debug.Log("Sending request to " + request.url);
+                        yield return request.SendWebRequest();
+                
+                        // Error handling
+                        if(request.isNetworkError || request.isHttpError) {
+                            Debug.LogError(request.error);
+                        } else {
+                            string result = request.downloadHandler.text;
+                            // Parse result
+                        }
+                    }
+                </code></pre>
+                <br>
+                
+                When retrieving the highscore list we can use <a href="http://wiki.unity3d.com/index.php/SimpleJSON" target="_blank">SimpleJSON</a>
+                to parse the results into an array of level objects...
+
+                <br><br>
+                <pre><code>
+                    public static Level[] GetLevels() {
+                        string url = "http://dreamlo.com/lb/" + PUBLIC_KEY + "/json";
+
+                        // ... Make GET Request, returning a result string
+
+                        List<UserLevel> levels = new List<UserLevel>();
+                        if(result == null) return levels.ToArray();
+                    
+                        JSONNode json = JSON.Parse(result);
+                        JSONNode entry = json["dreamlo"]["leaderboard"]["entry"];
+
+                        if (entry == null) return levels.ToArray();
+                        // Get array from JSON node
+                        if (entry.IsArray) {
+                            entry = entry.AsArray;
+                        } else {
+                            JSONArray array = new JSONArray();
+                            array.Add("", entry);
+                            entry = array;
+                        }
+
+                        for (int i = 0; i < entry.Count; i++) {
+                            if (i > 10) break;
+                
+                            JSONNode result = entry[i];
+                
+                            string name = result["name"].Value;
+                            int score = result["score"].AsInt;
+                            string info = result["text"].Value;
+                
+                            // Store values from JSON node in level object
+                            Level level = UserLevel.LevelFromString(name);
+                            level.Name = info;
+                            level.Likes = score;
+                
+                            levels.Add(level);
+                        }
+
+                        return levels.ToArray();
+                    }
+                </code></pre>
+                <br>
+
+                ...and deserialise the level string by iterating over pairs of characters, converting the first to a position 
+                and the second to a piece type:
+
+                <br><br>
+                <pre><code>
+                    public static Level LevelFromString(string levelString) {
+                        Level level = CreateInstance<Level>();
+
+                        // Iterate over every other character in the string to get pairs of characters
+                        for (int i = 0; i < levelString.Length; i += 2) {
+                            int first = System.Array.IndexOf(chars.ToCharArray(), levelString[i]);
+                            int second = System.Array.IndexOf(chars.ToCharArray(), levelString[i + 1]);
+
+                            if (i == 0) {
+                                // Store the first pair of characters as the level's width and height
+                                level.Width = first;
+                                level.Height = second;
+                                level.Rows = new Row[level.Height];
+                                for (int r = 0; r < level.Rows.Length; r++) {
+                                    level.Rows[r] = new Row(level.Width);
+                                }
+                            } else {
+                                // Convert index to coordinates
+                                int y = Mathf.FloorToInt((float) first / level.Width);
+                                int x = first % level.Width;
+                                // Cast character value to PieceType enum
+                                level.Rows[y].Pieces[x] = (PieceType) second;
+                            }
+                        }
+
+                        return level;
+                    }
+                </code></pre>
+                <br>
+                
+                Using the number of likes as the actual score means we can easily sort by most popular, but Dreamlo also offers an option to 
+                sort by date to get the most recently uploaded levels. Hopefully this has served as an introduction to the versatility of Dreamlo 
+                as a content-sharing service and the ways you can leverage platforms to distribute unintended content.
+
+                <br><br>
+
+                Ank’hur is available now on the <a href="https://play.google.com/store/apps/details?id=com.kianbennett.ankhur" target="_blank">Play Store</a>!
+                
             </div>
         </div>
         <div class="content-footer">
@@ -49,4 +211,9 @@
             <a class="link-icon icon-github" href="https://github.com/kianbennett" target="_blank"><i class="fab fa-github"></i></a>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/show-language/prism-show-language.min.js"></script>
 </body>

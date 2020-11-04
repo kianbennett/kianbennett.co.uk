@@ -235,8 +235,8 @@ a {
 
         .content-text {
             a {
-                font-weight: bold;
-                color: #449bff;
+                // font-weight: bold;
+                color: #2d85e9;
                 &:hover {
                     color: #8ec2ff;
                 }
@@ -272,7 +272,7 @@ a {
                 .game-name {
                     font-size: 1.4em;
                     text-align: center;
-                    color: rgb(120, 120, 120);
+                    color: rgb(60, 60, 60);
                     transition: all 0.1s;
                 }
                 .label-container {
@@ -293,7 +293,7 @@ a {
         .prog-container {
             display: block;
             position: relative;
-            background-color: rgb(245, 245, 245);
+            background-color: rgb(235, 235, 235);
             border-radius: 6px;
             padding: 5px 10px 10px 10px;
             margin-bottom: 10px;
@@ -353,8 +353,8 @@ a {
             margin-bottom: 20px;
 
             .article-title {
-                font-weight: bold;
-                font-size: 1.3em;
+                // font-weight: bold;
+                font-size: 1.4em;
                 // width: calc(100% - 160px);
             }
 
@@ -376,12 +376,15 @@ a {
 
         .image-container {
             text-align: center;
-            margin: 30px 0px;
+
+            margin: 25px 0px;
+            
 
             img, video {
                 border-radius: 10px;
                 box-shadow: 0px 2px 5px rgb(160, 160, 160);
                 max-width: 100%;
+                margin: 5px 10px;
             }
         }
     }
@@ -427,16 +430,17 @@ a {
     white-space: nowrap; // prevent wrapping so a label doesn't get cut in half
     // box-shadow: 1px 2px 3px rgb(200, 200, 200);
 
-    &.label-cplusplus { background-color: rgb(110, 140, 181); }
-    &.label-csharp { background-color: rgb(131, 132, 214); }
-    &.label-java { background-color: rgb(207, 121, 45); }
+    &.label-cplusplus { background-color: rgb(131, 152, 182); }
+    &.label-csharp { background-color: rgb(159, 160, 231); }
+    &.label-java { background-color: rgb(230, 147, 75); }
     &.label-html { background-color: rgb(132, 161, 114); }
-    &.label-scss { background-color: rgb(163, 114, 171); }
-    &.label-unity { background-color: rgb(107, 110, 112); }
-    &.label-android { background-color: rgb(59, 189, 98); }
-    &.label-procgen { background-color: rgb(223, 83, 78); }
-    &.label-shadergraph { background-color: rgb(209, 176, 29); }
-    &.label-team { background-color: #4cc4a6; }
+    &.label-scss { background-color: rgb(192, 146, 199); }
+    &.label-unity { background-color: rgb(138, 142, 145); }
+    &.label-android { background-color: rgb(84, 199, 119); }
+    &.label-procgen { background-color: rgb(236, 108, 103); }
+    &.label-shadergraph { background-color: rgb(228, 196, 55); }
+    &.label-javascript { background-color: rgb(219, 186, 39); }
+    &.label-team { background-color: #6adabe; }
 }
 
 .article-date, .image-label {

@@ -223,8 +223,7 @@ a {
   font-size: 1.05em;
 }
 .content .content-body .content-text a {
-  font-weight: bold;
-  color: #449bff;
+  color: #2d85e9;
 }
 .content .content-body .content-text a:hover {
   color: #8ec2ff;
@@ -255,7 +254,7 @@ a {
 .content .content-body .game-grid .game-container .game-name {
   font-size: 1.4em;
   text-align: center;
-  color: #787878;
+  color: #3c3c3c;
   transition: all 0.1s;
 }
 .content .content-body .game-grid .game-container .label-container {
@@ -270,7 +269,7 @@ a {
 .content .content-body .prog-container {
   display: block;
   position: relative;
-  background-color: whitesmoke;
+  background-color: #ebebeb;
   border-radius: 6px;
   padding: 5px 10px 10px 10px;
   margin-bottom: 10px;
@@ -322,8 +321,7 @@ a {
   margin-bottom: 20px;
 }
 .content .content-body .article-list-item .article-title {
-  font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 .content .content-body .article-list-item .article-preview {
   margin: 20px 0px;
@@ -338,12 +336,13 @@ a {
 }
 .content .content-body .image-container {
   text-align: center;
-  margin: 30px 0px;
+  margin: 25px 0px;
 }
 .content .content-body .image-container img, .content .content-body .image-container video {
   border-radius: 10px;
   box-shadow: 0px 2px 5px #a0a0a0;
   max-width: 100%;
+  margin: 5px 10px;
 }
 .content .content-footer {
   user-select: none;
@@ -392,34 +391,37 @@ a {
   white-space: nowrap;
 }
 .tech-label.label-cplusplus {
-  background-color: #6e8cb5;
+  background-color: #8398b6;
 }
 .tech-label.label-csharp {
-  background-color: #8384d6;
+  background-color: #9fa0e7;
 }
 .tech-label.label-java {
-  background-color: #cf792d;
+  background-color: #e6934b;
 }
 .tech-label.label-html {
   background-color: #84a172;
 }
 .tech-label.label-scss {
-  background-color: #a372ab;
+  background-color: #c092c7;
 }
 .tech-label.label-unity {
-  background-color: #6b6e70;
+  background-color: #8a8e91;
 }
 .tech-label.label-android {
-  background-color: #3bbd62;
+  background-color: #54c777;
 }
 .tech-label.label-procgen {
-  background-color: #df534e;
+  background-color: #ec6c67;
 }
 .tech-label.label-shadergraph {
-  background-color: #d1b01d;
+  background-color: #e4c437;
+}
+.tech-label.label-javascript {
+  background-color: #dbba27;
 }
 .tech-label.label-team {
-  background-color: #4cc4a6;
+  background-color: #6adabe;
 }
 
 .article-date, .image-label {

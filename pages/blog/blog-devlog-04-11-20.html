@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Blog | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.image').magnificPopup({
+                // delegate: 'a', // child items selector
+                type: 'image',
+                callbacks: {
+                    // Disable scrolling while image is open
+                    open: function() { $('body').css('overflow', 'hidden'); },
+                    close: function() { $('body').css('overflow', ''); },
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            University Devlog 03-11-20
+            <div class="label-container">
+                <span class="article-date">13<sup>th</sup> April 2020</span>
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-procgen">ProcGen</span>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="content-text">
+                Content
+
+                <br><br>
+
+                More content
+
+                <div class="image-container">
+                    <a href="/res/blog/sphere-shader-graph/diagram1.jpg" class="image"><img src="/res/blog/sphere-shader-graph/diagram1.jpg" width="440"></a>
+                    <div class="image-label">The scene as viewed from an orthographic side view</div>
+                </div>
+            </div>
+        </div>
+        <div class="content-footer">
+            <a class="link-icon icon-twitter" href="https://twitter.com/_kianbennett" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a class="link-icon icon-linkedin" href="https://www.linkedin.com/in/kian-bennett-2792a5b3/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a class="link-icon icon-itch" href="https://kianbennett.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>
+            <a class="link-icon icon-github" href="https://github.com/kianbennett" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</body>
