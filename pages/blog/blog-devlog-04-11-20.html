@@ -32,24 +32,92 @@
     <div id="nav-placeholder"></div>
     <div class="content" id="content-about">
         <div class="content-header">
-            University Devlog 03-11-20
+            University Devlog 04-11-20
             <div class="label-container">
-                <span class="article-date">13<sup>th</sup> April 2020</span>
+                <span class="article-date">4<sup>th</sup> November 2020</span>
                 <span class="tech-label label-unity">Unity</span><span class="tech-label label-procgen">ProcGen</span>
             </div>
         </div>
         <div class="content-body">
             <div class="content-text">
-                Content
+                <h3>Gameplay Programming</h3>
+
+                I've started getting underway with my GPROG coursework for which we will "create a gameplay demo focusing on two or three key features/mechanisms."
+                My plan is to create a sailing treasure-hunting game demo, allowing me to focus on the following areas:
+
+                <br>
+                <ul>
+                    <li>Procedural island generation using Perlin noise</li>
+                    <li>Gerstner wave simulation</li>
+                    <li>Ship physics and controls</li>
+                    <li>2D treasure map generated from island heightmaps outlined with marching squares</li>
+                </ul>
+
+                I've started a slightly more detailed design document (sans technical details) that can be viewed
+                <a href="https://docs.google.com/document/d/1YMZIRrltqqFpOaqlLJ1mhOS0jDqbPm9TRNxK2bbmUKs/edit?usp=sharing" target="_blank">here</a>.
 
                 <br><br>
 
-                More content
+                I began with the procedural islands as I have experience with implementing the techniques in previous projects.
+                I generated a Perlin noise heightmap, layering multiple octaves of differently scaled noise to achieve
+                a weathered look to the terrain. I subtracted a circular gradient falloff map from this heightmap, and the
+                result is a round-ish island with a high level of customisation. Sebastian Lague has an excellent explanation of the
+                technique on his Youtube channel <a href="https://www.youtube.com/watch?v=4RpVBYW1r5M&list=PLFt_AvWsXl0eBW2EiBtl_sxmDtSgZBxB3&index=5" target="_blank">here</a>.
+                If I were to take this further I would use decimation to optimise the mesh and experiment with variable LODs, but
+                for now this is beyond the scope of this project.
+
+                <br></br>
+
+                Something I've been putting particular effort into that I've often skipped over in previous projects is proper organisation of the
+                Unity inspector. While this isn't part of my assessment, by grouping variables under headings and using the Range attribute I can 
+                understand the inspector much more clearly at a glance, which is especially important when so many values are exposed.
 
                 <div class="image-container">
-                    <a href="/res/blog/sphere-shader-graph/diagram1.jpg" class="image"><img src="/res/blog/sphere-shader-graph/diagram1.jpg" width="440"></a>
-                    <div class="image-label">The scene as viewed from an orthographic side view</div>
+                    <a href="/res/blog/university-devlog/unity-island-screenshot.jpg" class="image"><img src="/res/blog/university-devlog/unity-island-screenshot.jpg" width="600"></a>
+                    <div class="image-label">The resulting mesh inside the Unity editor</div>
                 </div>
+
+                I'll colour this mesh with Shader Graph by setting vertex colours depending on their height,
+                and populate the island with trees and rocks - probably with more Perlin noise multiplied by
+                the terrain noise within a certain height range. In my forest fire game below I place trees
+                at regular intervals with a slight random offset which I think works well for a forest but
+                would look odd for a desert island which would need sparse clumps of trees.
+
+                <br><br>
+
+                A full map will contain a handful of these islands spread out randomly but evenly using Mitchell's
+                Best Candidate algorithm (the same technique I used in <a href="/pages//games/etherium.html" target="_blank">Etherium</a>).
+                While not particularly efficient I think it produces a good result for such a simple implementation.
+
+                <div class="image-container">
+                    <a href="/res/blog/university-devlog/Terrain2.gif" class="image"><img src="/res/blog/university-devlog/Terrain2.gif" width="600"></a>
+                    <div class="image-label">Part of my prototype of a <a href="https://twitter.com/_kianbennett/status/1306306684323852288" target="_blank">game about putting out forest fires</a> with terrain generated using the same technique as outlined above, but with vertex colours and environment objects</div>
+                </div>
+                
+                <h3>Programming API</h3>
+
+                My growing interest in the field of technical art led me to choose the <i>Houdini Object Model</i>
+                as my API for this module, with which I can use python scripting to build node graphs inside Houdini.
+
+                <br><br>
+
+                My plan is to create a piece of procedural architecture, either by making buildings out of small prefab pieces
+                or by generating a broader enviroment. Given time I'll then build this into a plugin use the Unreal API, possibly
+                with some UI elements.
+
+                <br><br>
+
+                I've started by getting familiar with the scripting enviroment in Houdini and how to create/connect nodes,
+                and I'll proceed by generating a simple building (a box with boolean cutouts for windows) that can be controlled
+                via parameters.
+
+                <div class="image-container">
+                    <a href="/res/blog/university-devlog/houdini-screenshot.jpg" class="image"><img src="/res/blog/university-devlog/houdini-screenshot.jpg" width="600"></a>
+                    <div class="image-label">Basic Houdini python setup, creating a simple node graph in the Python Source Editor</div>
+                </div>
+
+                I expect this project will require a lot of iteration as I'm not too familiar with python or Houdini, but I'm hoping
+                it'll give me a lot of transferrable skills that I can use in other tools, and possibly even a tech art specific portfolio piece!
             </div>
         </div>
         <div class="content-footer">
