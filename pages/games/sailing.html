@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Bottomless Crypt | Kian Bennett</title>
+    <title>Sailing Demo | Kian Bennett</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
@@ -42,25 +42,30 @@
     <div id="nav-placeholder"></div>
     <div class="content" id="content-about">
         <div class="content-header">
-            Bottomless Crypt
+            Sailing Demo
             <div class="label-container">
-                <span class="tech-label label-cplusplus">C++</span><span class="tech-label label-procgen">ProcGen</span>
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-procgen">ProcGen</span><span class="tech-label label-shadergraph">Shader Graph</span>
             </div>
         </div>
-        <a class="game-link github-link" href="https://github.com/KianBennett/Bottomless-Crypt" target="_blank">View on Github<i class="fab fa-github"></i></a>
+        <!-- <a class="game-link itch-link" href="https://kianbennett.itch.io/GPROG-Project" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a> -->
         <div class="content-body">
             <div class="content-text">
-                Bottomless Crypt is a roguelike with randomly generated dungeons using binary space partitioning. 
-                Corridors are made using A* to find paths between rooms, and the entire program is written as an Entity-Component-System.
-
-                <br>
-
-                It was made for my first year C++ programming module and got a mark of 100%.
+                For my gameplay programming coursework I was tasked with making a game demo focusing on a few core gameplay
+                mechanics and systems. I chose to make a ship sailing demo with procedurally generated desert islands,
+                realistic ship physics and a Gerstner wave vertex shader.
+                <ul>
+                    <li>Procedurally generated islands using Perlin noise and a circular falloff gradient</li>
+                    <li>Gerster wave displacement written in HLSL</li>
+                    <li>Ship physics model where bouyoancy, viscous water resistance and pressure drag forces
+                        are calculated for each of the hull mesh's triangles that are under the water line</li>
+                    <li>Lower and turn the sails to change the movement speed, turn the rudder
+                        to apply a torque force and aim and fire cannons!</li>
+                </ul>
             </div>
             
             <div class="screenshot-grid">
-                <a href="https://drive.google.com/file/d/1oE9u1NJRlxa-hdNyv-fN8ZEsSNmZoxJ5/preview" class="screenshot video"><img src="/res/videos/bottomlesscrypt-video-thumbnail.jpg"></a>
-                <a href="/res/screenshots/bottomlesscrypt-screenshot1.jpg" class="screenshot"><img src="/res/screenshots/bottomlesscrypt-screenshot1.jpg"></a>
+                <!-- <a href="res/videos/video.mp4" class="screenshot video"><img src="res/videos/video-thumbnail.png"></a> -->
+                <a href="/res/screenshots/etherium-screenshot1.jpg" class="screenshot"><img src="/res/screenshots/etherium-screenshot1.jpg"></a>
             </div>
         </div>
         
