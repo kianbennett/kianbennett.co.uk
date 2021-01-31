@@ -185,7 +185,7 @@ a {
   position: relative;
   top: -22px;
 }
-.content .game-link {
+.content .game-link, .content .game-link-second {
   position: absolute;
   display: inline-block;
   top: 8px;
@@ -198,10 +198,10 @@ a {
   box-shadow: 0px 2px 4px gainsboro;
   transition: all 0.1s;
 }
-.content .game-link .fab {
+.content .game-link .fab, .content .game-link-second .fab {
   padding-left: 6px;
 }
-.content .game-link:hover {
+.content .game-link:hover, .content .game-link-second:hover {
   transform: scale(1.05);
 }
 .content .itch-link {
@@ -211,12 +211,14 @@ a {
 .content .play-link {
   background-color: #49ba72;
   border: 1px solid #3ca061;
-  right: 150px;
-  margin-left: 5px;
 }
 .content .github-link {
   background-color: #9553b4;
   border: 1px solid #79236d;
+}
+.content .game-link-second {
+  right: 150px;
+  margin-left: 5px;
 }
 .content .content-body {
   margin-bottom: 30px;

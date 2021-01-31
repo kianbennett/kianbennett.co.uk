@@ -194,7 +194,7 @@ a {
         top: -22px;
     }
 
-    .game-link {
+    .game-link, .game-link-second {
         position: absolute;
         display: inline-block;
         top: 8px;
@@ -221,12 +221,14 @@ a {
     .play-link {
         background-color: rgb(73, 186, 114);   
         border: 1px solid rgb(60, 160, 97);
-        right: 150px;
-        margin-left: 5px;
     }
     .github-link {
         background-color: rgb(149, 83, 180);
         border: 1px solid rgb(121, 35, 109);
+    }
+    .game-link-second {
+        right: 150px;
+        margin-left: 5px;
     }
 
     .content-body {
