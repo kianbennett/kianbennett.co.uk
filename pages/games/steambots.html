@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Steambots | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Solway' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.screenshot-grid').magnificPopup({
+                delegate: 'a', // child items selector
+                type: 'iframe',
+                gallery: {
+                    enabled: true
+                },
+                callbacks: {
+                    elementParse: function(item) {
+                        // Add vidoe class to change type to video
+                        if(item.el[0].classList.contains('video')) {
+                            item.type = 'iframe';
+                        } else {
+                            item.type = 'image';
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Steambots
+            <div class="label-container">
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-team">Teamwork</span>
+            </div>
+        </div>
+        <a class="game-link itch-link" href="https://emmy-x3x.itch.io/steambots" target="_blank">View on itch.io<i class="fab fa-itch-io"></i></a>
+        <a class="game-link-second github-link" href="https://github.com/KianBennett/GJL-Game-Jam-2022" target="_blank">View on Github<i class="fab fa-github"></i></a>
+        <div class="content-body">
+            <div class="content-text">
+                Steambots was made in a team of 4 for the Game Parade Spring 2022 Game Jam
+                where it won awards for Most Commercially Viable, Best 3D Art and Best Level Design, and I took the role of programmer and animator.
+                You control three malfunctioning robots trying to escape the factory in which they were created, using each robot's unique abilities
+                together to solve puzzles.
+                <br><br>
+                Steambots has been showcased at events like EGX, Guildford Games Fest and Venturefest South. 
+            </div>
+            
+            <div class="screenshot-grid">
+                <a href="https://drive.google.com/file/d/1fXubkZRdxoccLqn2pb7412UXfqKFOIdH/preview" class="screenshot video"><img src="/res/videos/steambots-video-thumbnail.jpg"></a>
+                <a href="/res/screenshots/steambots-screenshot1.png" class="screenshot"><img src="/res/screenshots/steambots-screenshot1.png"></a>
+                <a href="/res/screenshots/steambots-screenshot3.png" class="screenshot"><img src="/res/screenshots/steambots-screenshot3.png"></a>
+                <a href="/res/screenshots/steambots-screenshot4.jpg" class="screenshot"><img src="/res/screenshots/steambots-screenshot4.jpg"></a>
+            </div>
+        </div>
+        
+    </div>
+</body>

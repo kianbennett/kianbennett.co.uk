@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Blog | Kian Bennett</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Solway' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-okaidia.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        // use jquery to replace #nav-placeholder with the contents of navbar.html
+        // able to reuse the same navbar across every page
+        $(function() {
+            $('#nav-placeholder').load('/navbar.html');
+            $('.image').magnificPopup({
+                // delegate: 'a', // child items selector
+                type: 'image',
+                callbacks: {
+                    // Disable scrolling while image is open
+                    open: function() { $('body').css('overflow', 'hidden'); },
+                    close: function() { $('body').css('overflow', ''); },
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="content" id="content-about">
+        <div class="content-header">
+            Blended Terrain Height Colours in Shader Graph
+            <div class="label-container">
+                <span class="article-date">12<sup>th</sup> November 2020</span>
+                <span class="tech-label label-unity">Unity</span><span class="tech-label label-shadergraph">Shader Graph</span>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="content-text language-hlsl">
+                When building procedural islands I needed a way of setting the colours of a terrain mesh with URP in Shader Graph, and I wanted to be able to
+                blend between colours with a variable blend amount for each colour boundary. To avoid a horrific web of nodes 
+                I needed to use a <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@6.7/manual/Custom-Function-Node.html" target="_blank">Custom Function Node</a>.
+
+                <div class="image-container">
+                    <a href="/res/blog/terrain-colours/node-graph.jpg" class="image"><img src="/res/blog/terrain-colours/node-graph.jpg" width="500"></a>
+                    <div class="image-label">As Shader Graph doesn't support properties as arrays, values for each colour region need to be supplied individually</div>
+                </div>
+
+                I’d supply the function with the Y position value as well as the highest and lowest heights on the mesh, allowing
+                me to get the pixel’s height as a value between 0 and 1. Each colour region would have a start height, colour and
+                blend amount (also between 0 and 1). The blend amount controls at what height the colour starts and stops interpolation
+                between the previous colour and the next.
+
+                <div class="image-container">
+                    <a href="/res/blog/terrain-colours/heights-diagram.jpg" class="image"><img src="/res/blog/terrain-colours/heights-diagram.jpg" width="390"></a>
+                    <a href="/res/blog/terrain-colours/heights-inspector.jpg" class="image"><img src="/res/blog/terrain-colours/heights-inspector.jpg" width="252"></a>
+                    <div class="image-label">Blend amounts go from 0 (no blending) to 1 (starting blending at halfway to previous colour and finish at halfway to next colour)</div>
+                </div>
+
+                The custom function takes these input values and stores them in arrays to be iterated over, and checks the y position against the
+                height regions and either interpolates the colour if it lies within the blend area or returns the solid colour.
+                
+                <br><br>
+
+                <pre><code>
+                    // Returns the percentage of value between a and b
+                    float inverseLerp(float a, float b, float value) {
+                        // Saturate clamps the value between 0 and 1 (incase value is outside the range of a - b)
+                        return saturate((value - a) / (b - a));
+                    }
+
+                    // Shader graph doesn't support arrays so parameters must be specified individually
+                    void GetColourFromHeight_float(float posY, float minHeight, float maxHeight, 
+                            float4 colour1, float4 colour2, float4 colour3, float4 colour4, float4 colour5, float4 colour6,
+                            float height1, float height2, float height3, float height4, float height5, float height6,
+                            float blend1, float blend2, float blend3, float blend4, float blend5, float blend6,
+                            out float4 colourOut) {
+
+                        float height = inverseLerp(minHeight, maxHeight, posY);
+
+                        // Store values in arrays so they can be access by index
+                        float4 colours[] = { colour1, colour2, colour3, colour4, colour5, colour6 };
+                        float heights[] = { height1, height2, height3, height4, height5, height6 };
+                        float blends[] = { blend1, blend2, blend3, blend4, blend5, blend6 };
+
+                        int regionCount = 6;
+
+                        // For each colour region set the colour, interpolate if the pixel lies within the blend area
+                        for(int i = 0; i < regionCount; i++) {
+                            // Make sure next and previous heights don't go beyond limits of array
+                            float heightPrev = 0, heightNext = 1;
+                            if(i > 0) heightPrev = heights[i - 1];
+                            if(i < regionCount - 1) heightNext = heights[i + 1];
+
+                            float4 colourPrev = colour1;
+                            if(i > 0) colourPrev = colours[i - 1];
+
+                            float distNext = heightNext - heights[i];
+                            float distPrev = heights[i] - heightPrev;
+
+                            // Check height is within limits of current region
+                            if(height >= heights[i] - distPrev / 2 && height <= heights[i] + distNext / 2) {
+                                if(height <= heights[i] - distPrev / 2 * blends[i]) {
+                                    colourOut = colourPrev;
+                                } else if(height >= heights[i] - distPrev / 2 * blends[i] && height <= heights[i] + distNext / 2 * blends[i]) {
+                                    // If height is within limits of blend amount, interpolate between current and previous colour
+                                    colourOut = lerp(colourPrev, colours[i], inverseLerp(heights[i] - distPrev / 2 * blends[i], heights[i] + distPrev / 2 * blends[i], height));
+                                } else {
+                                    colourOut = colours[i];
+                                }
+                                break;
+                            }
+
+                            // If the colour isn't within the limits of any region (and doesn't break the loop
+                            // then it will default to the last colour (to make sure the top of the terrain is completely coloured)
+                            colourOut = colours[i];
+                        }
+                    }
+                </code></pre>
+                <br>
+
+                <div class="image-container">
+                    <div><video src="/res/blog/terrain-colours/terrain-colour-demonstration.mp4" width="500" autoplay loop muted></div>
+                    <div class="image-label">The final result</div>
+                </div>
+            </div>
+        </div>
+        <div class="content-footer">
+            <a class="link-icon icon-twitter" href="https://twitter.com/_kianbennett" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a class="link-icon icon-linkedin" href="https://www.linkedin.com/in/kian-bennett-2792a5b3/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a class="link-icon icon-itch" href="https://kianbennett.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>
+            <a class="link-icon icon-github" href="https://github.com/kianbennett" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/show-language/prism-show-language.min.js"></script>
+</body>

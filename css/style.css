@@ -1,8 +1,9 @@
 body {
   margin: 0px;
-  font-family: "Alata", sans-serif;
+  font-family: "Solway", sans-serif;
   margin-bottom: 60px;
   margin-top: 90px;
+  background-color: #f6f6ef;
 }
 
 html {
@@ -19,13 +20,11 @@ a {
     padding: 0px 20px !important;
     width: calc(100% - 40px) !important;
   }
-
   .content {
     width: auto !important;
     margin-left: 50px !important;
     margin-right: 50px !important;
   }
-
   .screenshot-grid {
     display: flex !important;
     flex-flow: row wrap !important;
@@ -38,12 +37,10 @@ a {
   #name {
     display: none !important;
   }
-
   .prog-github {
     position: static !important;
     color: black !important;
   }
-
   .screenshot-grid {
     display: block !important;
   }
@@ -51,7 +48,6 @@ a {
     width: 100% !important;
     margin: 0px 0px 20px 0px !important;
   }
-
   .game-link {
     position: static !important;
     margin-bottom: 20px !important;
@@ -62,7 +58,6 @@ a {
     margin-left: 30px !important;
     margin-right: 30px !important;
   }
-
   #navbar {
     padding: 0px 5px 0px 10px !important;
     width: calc(100% - 15px) !important;
@@ -71,24 +66,23 @@ a {
   #navbar .navbar-button {
     padding: 0px 6px !important;
   }
-
   .article-thumbnail {
     display: none !important;
   }
 }
 #navbar {
   user-select: none;
-  box-shadow: 0px 1px 20px gainsboro;
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.2);
   padding: 0px calc((100% - 850px) / 2);
   height: 60px;
   position: fixed;
   top: 0px;
   width: 850px;
-  background-color: white;
+  background-color: #f6f6ef;
   z-index: 1;
 }
 #navbar .brand .profile-pic {
-  background-color: #bed2f3;
+  background-color: rgb(190, 210, 243);
   width: 44px;
   height: 44px;
   top: 8px;
@@ -108,7 +102,7 @@ a {
   transition: top 0.1s;
 }
 #navbar .brand .profile-pic-shadow {
-  box-shadow: inset 0px 2px 5px #6a7a94;
+  box-shadow: inset 0px 2px 5px rgb(106, 122, 148);
   position: absolute;
 }
 #navbar .brand #name {
@@ -118,6 +112,9 @@ a {
   position: relative;
   padding-left: 15px;
 }
+#navbar .brand:hover #name {
+  color: rgb(120, 120, 120);
+}
 #navbar .brand:hover .profile-pic-image {
   top: 5px;
 }
@@ -126,11 +123,13 @@ a {
   line-height: 60px;
   padding: 0px 12px;
   font-size: 1.15em;
-  color: #787878;
+  color: rgb(120, 120, 120);
   height: 100%;
+}
+#navbar .navbar-button, #navbar .brand {
   cursor: pointer;
 }
-#navbar .navbar-button .highlight {
+#navbar .navbar-button .highlight, #navbar .brand .highlight {
   width: 0px;
   left: 50%;
   height: 4px;
@@ -138,27 +137,27 @@ a {
   top: -4px;
   transition: all 0.2s;
 }
-#navbar .navbar-button:hover {
+#navbar .navbar-button:hover, #navbar .brand:hover {
   color: black;
 }
-#navbar .navbar-button:hover .highlight {
+#navbar .navbar-button:hover .highlight, #navbar .brand:hover .highlight {
   width: 100%;
   left: 0px;
 }
-#navbar .navbar-button .highlight-about {
-  background-color: #6a9c51;
+#navbar .navbar-button .highlight-about, #navbar .brand .highlight-about {
+  background-color: rgb(106, 156, 81);
 }
-#navbar .navbar-button .highlight-blog {
-  background-color: #be5149;
+#navbar .navbar-button .highlight-blog, #navbar .brand .highlight-blog {
+  background-color: rgb(190, 81, 73);
 }
-#navbar .navbar-button .highlight-projects {
-  background-color: #8b519c;
+#navbar .navbar-button .highlight-projects, #navbar .brand .highlight-projects {
+  background-color: rgb(139, 81, 156);
 }
-#navbar .navbar-button .highlight-contact {
-  background-color: #51759c;
+#navbar .navbar-button .highlight-contact, #navbar .brand .highlight-contact {
+  background-color: rgb(81, 117, 156);
 }
-#navbar .navbar-button .highlight-cv {
-  background-color: #d68631;
+#navbar .navbar-button .highlight-cv, #navbar .brand .highlight-cv {
+  background-color: rgb(214, 134, 49);
 }
 
 .content {
@@ -173,15 +172,14 @@ a {
 .content .content-header .headshot {
   width: 60px;
   border-radius: 10px;
-  box-shadow: 0px 2px 3px #c8c8c8;
   margin-right: 15px;
   position: relative;
-  top: 10px;
+  top: 11px;
   margin-top: -15px;
 }
 .content .content-subheader {
   font-size: 0.9em;
-  color: #969696;
+  color: rgb(150, 150, 150);
   position: relative;
   top: -22px;
 }
@@ -195,7 +193,7 @@ a {
   padding: 4px 6px;
   text-shadow: 1px 2px rgba(0, 0, 0, 0.2);
   color: white;
-  box-shadow: 0px 2px 4px gainsboro;
+  box-shadow: 0px 2px 4px rgb(220, 220, 220);
   transition: all 0.1s;
 }
 .content .game-link .fab, .content .game-link-second .fab {
@@ -205,19 +203,23 @@ a {
   transform: scale(1.05);
 }
 .content .itch-link {
-  background-color: #f27272;
-  border: 1px solid #d16666;
+  background-color: rgb(242, 114, 114);
+  border: 1px solid rgb(209, 102, 102);
 }
 .content .play-link {
-  background-color: #49ba72;
-  border: 1px solid #3ca061;
+  background-color: rgb(73, 186, 114);
+  border: 1px solid rgb(60, 160, 97);
 }
 .content .github-link {
-  background-color: #9553b4;
-  border: 1px solid #79236d;
+  background-color: rgb(149, 83, 180);
+  border: 1px solid rgb(121, 35, 109);
+}
+.content .bitbucket-link {
+  background-color: rgb(83, 114, 180);
+  border: 1px solid rgb(54, 35, 121);
 }
 .content .game-link-second {
-  right: 150px;
+  right: 160px;
   margin-left: 5px;
 }
 .content .content-body {
@@ -225,7 +227,7 @@ a {
   font-size: 1.05em;
 }
 .content .content-body .content-text a {
-  color: #2d85e9;
+  color: #597c20;
 }
 .content .content-body .content-text a:hover {
   color: #8ec2ff;
@@ -244,7 +246,7 @@ a {
   overflow: hidden;
   height: 120px;
   position: relative;
-  box-shadow: 0px 2px 5px #b4b4b4;
+  box-shadow: 0px 2px 5px rgb(180, 180, 180);
   transition: all 0.2s;
 }
 .content .content-body .game-grid .game-container .game-thumbnail-container .game-thumbnail {
@@ -256,7 +258,7 @@ a {
 .content .content-body .game-grid .game-container .game-name {
   font-size: 1.4em;
   text-align: center;
-  color: #3c3c3c;
+  color: rgb(60, 60, 60);
   transition: all 0.1s;
 }
 .content .content-body .game-grid .game-container .label-container {
@@ -271,7 +273,7 @@ a {
 .content .content-body .prog-container {
   display: block;
   position: relative;
-  background-color: #ebebeb;
+  background-color: rgb(235, 235, 235);
   border-radius: 6px;
   padding: 5px 10px 10px 10px;
   margin-bottom: 10px;
@@ -280,14 +282,14 @@ a {
   font-size: 1.1em;
 }
 .content .content-body .prog-container .prog-desc {
-  color: #787878;
+  color: rgb(120, 120, 120);
   font-size: 0.9em;
 }
 .content .content-body .prog-container .prog-github {
   position: absolute;
   top: 7px;
   right: 10px;
-  color: #787878;
+  color: rgb(120, 120, 120);
   transition: all 0.1s;
 }
 .content .content-body .prog-container .prog-github .fab {
@@ -299,7 +301,7 @@ a {
 }
 .content .content-body .prog-container:hover .prog-github .fab {
   transform: scale(1.2);
-  color: #6c1d99;
+  color: rgb(108, 29, 153);
 }
 .content .content-body .screenshot-grid {
   position: relative;
@@ -313,11 +315,11 @@ a {
 }
 .content .content-body .screenshot-grid .screenshot img {
   width: 100%;
-  box-shadow: 0px 2px 6px #787878;
+  box-shadow: 0px 2px 6px rgb(120, 120, 120);
   border-radius: 6px;
 }
 .content .content-body .article-list-item {
-  background-color: whitesmoke;
+  background-color: rgb(234, 232, 228);
   border-radius: 6px;
   padding: 5px 10px 10px 10px;
   margin-bottom: 20px;
@@ -333,7 +335,7 @@ a {
   float: right;
   margin: 5px 0px 5px 10px;
   margin-left: 15px;
-  box-shadow: 0px 2px 5px #b4b4b4;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 .content .content-body .image-container {
@@ -342,7 +344,7 @@ a {
 }
 .content .content-body .image-container img, .content .content-body .image-container video {
   border-radius: 10px;
-  box-shadow: 0px 2px 5px #a0a0a0;
+  box-shadow: 0px 2px 5px rgb(160, 160, 160);
   max-width: 100%;
   margin: 5px 10px;
 }
@@ -352,7 +354,7 @@ a {
 
 .link-icon {
   font-size: 2em;
-  color: #969696;
+  color: rgb(150, 150, 150);
   margin-right: 15px;
   transition: transform 0.2s, color 0.1s;
   display: inline-block;
@@ -361,19 +363,19 @@ a {
   transform: scale(1.2);
 }
 .link-icon:hover.icon-github {
-  color: #6c1d99;
+  color: rgb(108, 29, 153);
 }
 .link-icon:hover.icon-itch {
-  color: #f27272;
+  color: rgb(242, 114, 114);
 }
 .link-icon:hover.icon-play {
-  color: #49ba72;
+  color: rgb(73, 186, 114);
 }
 .link-icon:hover.icon-twitter {
-  color: #48b2f0;
+  color: rgb(72, 178, 240);
 }
 .link-icon:hover.icon-linkedin {
-  color: #356eb8;
+  color: rgb(53, 110, 184);
 }
 
 .label-container {
@@ -393,41 +395,41 @@ a {
   white-space: nowrap;
 }
 .tech-label.label-cplusplus {
-  background-color: #8398b6;
+  background-color: rgb(131, 152, 182);
 }
 .tech-label.label-csharp {
-  background-color: #9fa0e7;
+  background-color: rgb(159, 160, 231);
 }
 .tech-label.label-java {
-  background-color: #e6934b;
+  background-color: rgb(230, 147, 75);
 }
 .tech-label.label-html {
-  background-color: #84a172;
+  background-color: rgb(132, 161, 114);
 }
 .tech-label.label-scss {
-  background-color: #c092c7;
+  background-color: rgb(192, 146, 199);
 }
 .tech-label.label-unity {
-  background-color: #8a8e91;
+  background-color: rgb(138, 142, 145);
 }
 .tech-label.label-android {
-  background-color: #54c777;
+  background-color: rgb(84, 199, 119);
 }
 .tech-label.label-procgen {
-  background-color: #ec6c67;
+  background-color: rgb(236, 108, 103);
 }
 .tech-label.label-shadergraph {
-  background-color: #e4c437;
+  background-color: rgb(228, 196, 55);
 }
 .tech-label.label-javascript {
-  background-color: #dbba27;
+  background-color: rgb(219, 186, 39);
 }
 .tech-label.label-team {
   background-color: #6adabe;
 }
 
 .article-date, .image-label {
-  color: #646464;
+  color: rgb(100, 100, 100);
 }
 
 .equation-container {
@@ -436,7 +438,7 @@ a {
 }
 
 .equation-container, .equation {
-  background-color: #f0f0f0;
+  background-color: rgb(240, 240, 240);
   font-family: Consolas, monospace, serif;
   padding: 4px 6px;
   border-radius: 6px;
