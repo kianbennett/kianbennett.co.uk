@@ -3,43 +3,27 @@
 <head>
     <title>Projects | Kian Bennett</title>
     <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css">
     <link href='https://fonts.cdnfonts.com/css/solway' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <script src="https://kit.fontawesome.com/868b9e67e9.js" crossorigin="anonymous"></script> -->
-
     <script language="JavaScript" type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
-    <script>
-        // use jquery to replace #nav-placeholder with the contents of navbar.html
-        // able to reuse the same navbar across every page
-        $(function() {
-            $('#nav-placeholder').load('/navbar.html');
-        });
-    </script>
+    <script src = "js/common.js"></script>
 </head>
 
 <body>
     <div id="nav-placeholder"></div>
     <div class="content" id="content-projects">
         <div class="content-header">
-            Personal Games
+            Professional Work
         </div>
         <div class="content-subheader">
             Click for details and screenshots
         </div>
         <div class="content-body">
             <div class="game-grid">
-                <a class="game-container" href="/pages/games/minecrawlers">
-                    <div class="game-thumbnail-container">
-                        <img class="game-thumbnail" src="/res/thumbnails/thumb-minecrawlers.png">
-                    </div>
-                    <div class="label-container">
-                        <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-procgen">ProcGen</span>
-                    </div>
-                    <div class="game-name">Minecrawlers</div>
-                </a>
-                <a class="game-container" href="/pages/games/lordship">
+                <!-- <a class="game-container" href="/pages/games/lordship">
                     <div class="game-thumbnail-container">
                         <img class="game-thumbnail" src="/res/thumbnails/thumb-lordship.png">
                     </div>
@@ -47,17 +31,26 @@
                         <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-procgen">ProcGen</span>
                     </div>
                     <div class="game-name">Lordship</div>
+                </a> -->
+                <a class="game-container" href="/pages/games/sot">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="/res/thumbnails/thumb-sot.jpg">
+                    </div>
+                    <div class="label-container">
+                        <span class="tech-label label-unity">Unreal</span><span class="tech-label label-cplusplus">C++</span><span class="tech-label label-team">AAA</span>
+                    </div>
+                    <div class="game-name">Sea of Thieves</div>
                 </a>
                 <a class="game-container" href="/pages/games/steambots">
                     <div class="game-thumbnail-container">
-                        <img class="game-thumbnail" src="/res/thumbnails/thumb-steambots.png">
+                        <img class="game-thumbnail" src="/res/thumbnails/thumb-steambots.jpg">
                     </div>
                     <div class="label-container">
-                        <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-team">Teamwork</span>
+                        <span class="tech-label label-unity">Unreal</span><span class="tech-label label-csharp">Blueprints</span><span class="tech-label label-team">Indie</span>
                     </div>
                     <div class="game-name">Steambots</div>
                 </a>
-                <a class="game-container" href="/pages/games/ankhur">
+                <!-- <a class="game-container" href="/pages/games/ankhur">
                     <div class="game-thumbnail-container">
                         <img class="game-thumbnail" src="/res/thumbnails/thumb-ankhur.png">
                     </div>
@@ -65,7 +58,7 @@
                         <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-android">Android</span>
                     </div>
                     <div class="game-name">Ank'hur</div>
-                </a>
+                </a> -->
                 <!-- <a class="game-container" href="/pages/games/brewstone">
                     <div class="game-thumbnail-container">
                         <img class="game-thumbnail" src="/res/thumbnails/thumb-brewstone.png">
@@ -93,13 +86,22 @@
             </div>
         </div>
         <div class="content-header">
-            University Projects
+            Personal/University Projects
         </div>
         <div class="content-subheader">
             Click for details and screenshots
         </div>
         <div class="content-body">
             <div class="game-grid">
+                <a class="game-container" href="/pages/games/minecrawlers">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="/res/thumbnails/thumb-malltopia.jpg">
+                    </div>
+                    <div class="label-container">
+                        <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-procgen">ProcGen</span>
+                    </div>
+                    <div class="game-name">Malltopia</div>
+                </a>
                 <a class="game-container" href="/pages/games/sailing">
                     <div class="game-thumbnail-container">
                         <img class="game-thumbnail" src="/res/thumbnails/thumb-sailing.jpg">
@@ -107,9 +109,18 @@
                     <div class="label-container">
                         <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-procgen">ProcGen</span>
                     </div>
-                    <div class="game-name">Sailing Demo</div>
+                    <div class="game-name">Sailing Physics</div>
                 </a>
-                <a class="game-container" href="/pages/games/bottomlesscrypt">
+                <a class="game-container" href="/pages/games/minecrawlers">
+                    <div class="game-thumbnail-container">
+                        <img class="game-thumbnail" src="/res/thumbnails/thumb-minecrawlers.png">
+                    </div>
+                    <div class="label-container">
+                        <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-procgen">ProcGen</span>
+                    </div>
+                    <div class="game-name">Minecrawlers</div>
+                </a>
+                <!-- <a class="game-container" href="/pages/games/bottomlesscrypt">
                     <div class="game-thumbnail-container">
                         <img class="game-thumbnail" src="/res/thumbnails/thumb-bottomlesscrypt.png">
                     </div>
@@ -126,8 +137,8 @@
                         <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-team">Teamwork</span>
                     </div>
                     <div class="game-name">What Makes Us</div>
-                </a>
-                <a class="game-container" href="/pages/games/fluctus">
+                </a> -->
+                <!-- <a class="game-container" href="/pages/games/fluctus">
                     <div class="game-thumbnail-container">
                         <img class="game-thumbnail" src="/res/thumbnails/thumb-fluctus.png">
                     </div>
@@ -135,7 +146,7 @@
                         <span class="tech-label label-unity">Unity</span><span class="tech-label label-csharp">C#</span><span class="tech-label label-android">Android</span>
                     </div>
                     <div class="game-name">Fluctus</div>
-                </a>
+                </a> -->
                 <!-- <a class="game-container" href="/pages/games/acedefender">
                     <div class="game-thumbnail-container">
                         <img class="game-thumbnail" src="res/thumbnails/thumb-acedefender.png">
@@ -148,7 +159,7 @@
             </div>
         </div>
         <div class="content-header">
-            Programming Projects
+            Misc Programming
         </div>
         <div class="content-body">
             <a class="prog-container" href="https://github.com/KianBennett/kianbennett.co.uk" target="_blank">
@@ -156,26 +167,31 @@
                 <div class="prog-desc">This site is made with Sass and is fully responsive without the use of frameworks</div>
                 <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
             </a>
+            <a class="prog-container" href = "https://github.com/kianbennett/Bottomless-Crypt" target="_blank">
+                <div class="prog-name">Bottomless Crypt<span class="tech-label label-cplusplus">C++</span></div>
+                <div class="prog-desc">Dungeon crawler roguelike built in SFML with Entity-Component-System architecture.</div>
+                <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
+            </a>
             <a class="prog-container" href="https://kianbennett.github.io/tcg-collector/" target="_blank">
                 <div class="prog-name">TCG Collector<span class="tech-label label-html">HTML</span><span class="tech-label label-scss">SCSS</span><span class="tech-label label-javascript">Javascript</span></div>
                 <div class="prog-desc">A web app for cataloguing one's <i>Yu-Gi-Oh!</i> card collection</div>
                 <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
             </a>
-            <a class="prog-container" href = "https://github.com/KianBennett/fluctus-nx" target="_blank">
+            <!-- <a class="prog-container" href = "https://github.com/KianBennett/fluctus-nx" target="_blank">
                 <div class="prog-name">Fluctus NX<span class="tech-label label-cplusplus">C++</span></div>
                 <div class="prog-desc">A Switch homebrew port of my University game Fluctus, rewritten with OpenGL</div>
                 <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
-            </a>
+            </a> -->
             <a class="prog-container" href = "https://github.com/KianBennett/SolsticeServer" target="_blank">
                 <div class="prog-name">Solstice Server Emulator<span class="tech-label label-csharp">C#</span></div>
-                <div class="prog-desc">A server emulator for the long defunct MMO <i>Secret of the Solstice</i></div>
+                <div class="prog-desc">Reverse-engineered server emulator for the long defunct MMO <i>Secret of the Solstice</i></div>
                 <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
             </a>
-            <a class="prog-container" href="https://github.com/KianBennett/Yugioh-Database-Downloader" target="_blank">
+            <!-- <a class="prog-container" href="https://github.com/KianBennett/Yugioh-Database-Downloader" target="_blank">
                 <div class="prog-name"><i>Yu-Gi-Oh!</i> Database Downloader<span class="tech-label label-java">Java</span></div>
                 <div class="prog-desc">Scrapes information about each <i>Yu-Gi-Oh!</i> card from the wiki</div>
                 <div class="prog-github">View on Github<i class="fab fa-github"></i></div>
-            </a>
+            </a> -->
             <!-- <a class="prog-container" href="https://github.com/KianBennett/lol-ping-tool" target="_blank">
                 <div class="prog-name">LoL Ping Tool<span class="tech-label label-java">Java</span></div>
                 <div class="prog-desc">A small Java applet to display ping to each League of Legends server</div>
@@ -183,10 +199,9 @@
             </a> -->
         </div>
         <div class="content-footer">
-            <a class="link-icon icon-twitter" href="https://twitter.com/_kianbennett" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a class="link-icon icon-linkedin" href="https://www.linkedin.com/in/kian-bennett-2792a5b3/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a class="link-icon icon-itch" href="https://kianbennett.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>
             <a class="link-icon icon-github" href="https://github.com/kianbennett" target="_blank"><i class="fab fa-github"></i></a>
+            <a class="link-icon icon-linkedin" href="https://www.linkedin.com/in/kian-bennett-2792a5b3/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a class="link-icon icon-twitter" href="https://twitter.com/_kianbennett" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
     </div>
 </body>

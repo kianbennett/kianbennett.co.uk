@@ -1,9 +1,24 @@
+@use "sass:map";
+
+$bg-color-light: #f6f6ef;
+$bg-color-dark: #1a1a1a;
+$text-color-light: black;
+$text-color-dark: #dadad1;
+$text-highlight-light: black;
+$text-highlight-dark: #f6f6ef;
+
+:root {
+    color-scheme: light dark;
+}
+
 body {
     margin: 0px;
     font-family: 'Solway', sans-serif;
     margin-bottom: 60px;
     margin-top: 90px;
-    background-color: #f6f6ef;
+
+    color: light-dark($text-color-light, $text-color-dark);
+    background-color: light-dark($bg-color-light, $bg-color-dark);
 }
 
 html {
@@ -84,13 +99,16 @@ a {
 
 #navbar {
     user-select: none; // can't highlight the text
-    box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 20px light-dark(rgb(0, 0, 0, 0.2), rgb(0, 0, 0, 0.8));
     padding: 0px calc((100% - 850px) / 2);
     height: 60px;
     position: fixed;
     top: 0px;
     width: 850px;
-    background-color: #f6f6ef;
+
+    color: light-dark($text-color-light, $text-color-dark);
+    background-color: light-dark(#f6f6ef, #252527);
+
     z-index: 1;
 
     .brand {
@@ -143,7 +161,7 @@ a {
         line-height: 60px;
         padding: 0px 12px;
         font-size: 1.15em;
-        color: rgb(120, 120, 120);
+        color: rgb(110, 110, 110);
         height: 100%;
     }
 
@@ -160,7 +178,7 @@ a {
         }
 
         &:hover  {
-            color: black;
+            color: light-dark($text-highlight-light, $text-highlight-dark);
             .highlight {
                 width: 100%;
                 left: 0px;
@@ -183,6 +201,8 @@ a {
     .content-header {
         font-size: 2em;
         margin-bottom: 20px;
+
+        color: light-dark($text-color-light, $text-color-dark);
 
         .headshot {
             width: 60px;
@@ -212,7 +232,7 @@ a {
         padding: 4px 6px;
         text-shadow: 1px 2px rgba(0, 0, 0, 0.2);
         color: white;
-        box-shadow: 0px 2px 4px rgb(220, 220, 220);
+        box-shadow: 0px 2px 4px rgb(0, 0, 0, 0.3);
         transition: all 0.1s;
 
         .fab {
@@ -231,7 +251,7 @@ a {
         border: 1px solid rgb(60, 160, 97);
     }
     .github-link {
-        background-color: rgb(149, 83, 180);
+        background-color: rgb(178, 87, 231);
         border: 1px solid rgb(121, 35, 109);
     }
     .bitbucket-link {
@@ -244,7 +264,7 @@ a {
     }
 
     .content-body {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         font-size: 1.05em;
 
         .content-text {
@@ -252,7 +272,7 @@ a {
                 // font-weight: bold;
                 color: #597c20;
                 &:hover {
-                    color: #8ec2ff;
+                    color: #94ff8e;
                 }
             }
         }
@@ -265,16 +285,16 @@ a {
             // margin-left: 50px;
 
             .game-container {
-                width: 150px;
+                width: 225px;
                 margin: 0px 4px 10px 4px;
 
                 .game-thumbnail-container {
-                    border-radius: 10px;
+                    border-radius: 8px;
                     overflow: hidden;
-                    height: 120px;
+                    height: 180px;
                     position: relative;
-                    box-shadow: 0px 2px 5px rgb(180, 180, 180);
                     transition: all 0.2s;
+                    margin-bottom: 10px;
 
                     .game-thumbnail {
                         position: absolute;
@@ -286,11 +306,13 @@ a {
                 .game-name {
                     font-size: 1.4em;
                     text-align: center;
-                    color: rgb(60, 60, 60);
+                    color: light-dark(rgb(60, 60, 60), rgb(220, 220, 220));
                     transition: all 0.1s;
+                    white-space: nowrap; // Prevents name from wrapping to two lines
                 }
                 .label-container {
                     text-align: center;
+                    margin-bottom: 6px;
                 }
 
                 &:hover {
@@ -298,7 +320,7 @@ a {
                         transform: scale(1.05);
                     }
                     .game-name {
-                        color:black;
+                        color: light-dark(black, white);
                     }
                 }
             }
@@ -307,7 +329,8 @@ a {
         .prog-container {
             display: block;
             position: relative;
-            background-color: rgb(235, 235, 235);
+            // background-color: rgb(235, 235, 235);
+            background-color: light-dark(rgb(235, 235, 235), #2f2f31);
             border-radius: 6px;
             padding: 5px 10px 10px 10px;
             margin-bottom: 10px;
@@ -318,6 +341,7 @@ a {
             .prog-desc {
                 color: rgb(120, 120, 120);
                 font-size: 0.9em;
+                padding-top: 4px;
             }
             .prog-github {
                 position: absolute;
@@ -333,10 +357,10 @@ a {
             }
             &:hover {
                 .prog-github {
-                    color: black;
+                    color: light-dark(black, white);
                     .fab {
                         transform: scale(1.2);
-                        color: rgb(108, 29, 153);
+                        color: rgb(178, 87, 231);
                     }
                 }
             }
@@ -354,14 +378,14 @@ a {
 
                 img {
                     width: 100%;
-                    box-shadow: 0px 2px 6px rgb(120, 120, 120);
+                    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
                     border-radius: 6px;
                 }
             }
         }
 
         .article-list-item {
-            background-color: rgb(234, 232, 228);
+            background-color: light-dark(rgb(234, 232, 228), #2f2f31);
             border-radius: 6px;
             padding: 5px 10px 10px 10px;
             margin-bottom: 20px;
@@ -369,6 +393,7 @@ a {
             .article-title {
                 // font-weight: bold;
                 font-size: 1.4em;
+                color: light-dark(black, white);
                 // width: calc(100% - 160px);
             }
 
@@ -396,7 +421,7 @@ a {
 
             img, video {
                 border-radius: 10px;
-                box-shadow: 0px 2px 5px rgb(160, 160, 160);
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
                 max-width: 100%;
                 margin: 5px 10px;
             }
@@ -417,7 +442,7 @@ a {
 
     &:hover {
         transform: scale(1.2);
-        &.icon-github { color: rgb(108, 29, 153); }
+        &.icon-github { color: rgb(178, 87, 231); }
         &.icon-itch { color: rgb(242, 114, 114); }
         &.icon-play { color: rgb(73, 186, 114); }
         &.icon-twitter { color: rgb(72, 178, 240); }
@@ -444,17 +469,17 @@ a {
     white-space: nowrap; // prevent wrapping so a label doesn't get cut in half
     // box-shadow: 1px 2px 3px rgb(200, 200, 200);
 
-    &.label-cplusplus { background-color: rgb(131, 152, 182); }
-    &.label-csharp { background-color: rgb(159, 160, 231); }
-    &.label-java { background-color: rgb(230, 147, 75); }
-    &.label-html { background-color: rgb(132, 161, 114); }
-    &.label-scss { background-color: rgb(192, 146, 199); }
-    &.label-unity { background-color: rgb(138, 142, 145); }
-    &.label-android { background-color: rgb(84, 199, 119); }
-    &.label-procgen { background-color: rgb(236, 108, 103); }
-    &.label-shadergraph { background-color: rgb(228, 196, 55); }
-    &.label-javascript { background-color: rgb(219, 186, 39); }
-    &.label-team { background-color: #6adabe; }
+    &.label-cplusplus { background-color: rgb(55, 65, 79); }
+    &.label-csharp { background-color: rgb(66, 68, 189); }
+    &.label-java { background-color: rgb(173, 115, 65); }
+    &.label-html { background-color: rgb(77, 90, 69); }
+    &.label-scss { background-color: rgb(112, 86, 117); }
+    &.label-unity { background-color: rgb(86, 88, 90); }
+    &.label-android { background-color: rgb(64, 156, 92); }
+    &.label-procgen { background-color: rgb(172, 61, 57); }
+    &.label-shadergraph { background-color: rgb(149, 131, 51); }
+    &.label-javascript { background-color: rgb(165, 143, 46); }
+    &.label-team { background-color: #18765f; }
 }
 
 .article-date, .image-label {

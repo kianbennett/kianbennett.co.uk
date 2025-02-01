@@ -1,5 +1,5 @@
 <div id="navbar">
-    
+    <a class="navbar-button theme-toggle"><i class="fa fa-moon"></i></a>
     <a class="navbar-button" href="/res/Kian Bennett CV.pdf" target="_blank">CV<div class="highlight highlight-cv"></div></a>
     <a class="navbar-button" href="/contact">Contact<div class="highlight highlight-contact"></div></a>
     <a class="navbar-button" href="/projects">Projects<div class="highlight highlight-projects"></div></a>
@@ -12,4 +12,54 @@
         </div> -->
         <div id="name">Kian Bennett</div>
     </a>
+    <script>
+        const body = document.body;
+        const html = document.querySelector("html");
+        const toggleButton = document.querySelector(".theme-toggle");
+
+        // Check and apply the saved theme from localStorage
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            if (savedTheme == "dark") {
+                setDarkTheme();
+            } else if (savedTheme == "light") {
+                setLightTheme();
+            }
+            console.log('Loaded ' + savedTheme + ' theme from save');
+        }
+        else
+        {
+            console.log('No saved theme');
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setDarkTheme();
+                console.log('Auto dark theme');
+            } else {
+                setLightThemed();
+                console.log('Auto light theme');
+            }
+        }
+
+        // Add event listener to toggle button
+        toggleButton.addEventListener("click", () => {
+            newTheme = localStorage.getItem("theme") == "dark" ? "light" : "dark";
+            if (newTheme == "dark") {
+                setDarkTheme();
+            } else if (newTheme == "light") {
+                setLightTheme()
+            }
+            console.log('Switched to ' + newTheme + ' theme');
+        });
+
+        function setLightTheme() {
+            html.style.setProperty("color-scheme", "light");
+            localStorage.setItem("theme", "light");
+            toggleButton.firstChild.className = "fa fa-moon";
+        }
+
+        function setDarkTheme() {
+            html.style.setProperty("color-scheme", "dark");
+            localStorage.setItem("theme", "dark");
+            toggleButton.firstChild.className = "fa fa-sun";
+        }
+    </script>
 </div>

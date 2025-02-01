@@ -1,9 +1,14 @@
+:root {
+  color-scheme: light dark;
+}
+
 body {
   margin: 0px;
   font-family: "Solway", sans-serif;
   margin-bottom: 60px;
   margin-top: 90px;
-  background-color: #f6f6ef;
+  color: light-dark(black, #dadad1);
+  background-color: light-dark(#f6f6ef, #1a1a1a);
 }
 
 html {
@@ -72,13 +77,14 @@ a {
 }
 #navbar {
   user-select: none;
-  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 20px light-dark(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
   padding: 0px calc((100% - 850px) / 2);
   height: 60px;
   position: fixed;
   top: 0px;
   width: 850px;
-  background-color: #f6f6ef;
+  color: light-dark(black, #dadad1);
+  background-color: light-dark(#f6f6ef, #252527);
   z-index: 1;
 }
 #navbar .brand .profile-pic {
@@ -123,7 +129,7 @@ a {
   line-height: 60px;
   padding: 0px 12px;
   font-size: 1.15em;
-  color: rgb(120, 120, 120);
+  color: rgb(110, 110, 110);
   height: 100%;
 }
 #navbar .navbar-button, #navbar .brand {
@@ -138,7 +144,7 @@ a {
   transition: all 0.2s;
 }
 #navbar .navbar-button:hover, #navbar .brand:hover {
-  color: black;
+  color: light-dark(black, #f6f6ef);
 }
 #navbar .navbar-button:hover .highlight, #navbar .brand:hover .highlight {
   width: 100%;
@@ -168,6 +174,7 @@ a {
 .content .content-header {
   font-size: 2em;
   margin-bottom: 20px;
+  color: light-dark(black, #dadad1);
 }
 .content .content-header .headshot {
   width: 60px;
@@ -193,7 +200,7 @@ a {
   padding: 4px 6px;
   text-shadow: 1px 2px rgba(0, 0, 0, 0.2);
   color: white;
-  box-shadow: 0px 2px 4px rgb(220, 220, 220);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
   transition: all 0.1s;
 }
 .content .game-link .fab, .content .game-link-second .fab {
@@ -211,7 +218,7 @@ a {
   border: 1px solid rgb(60, 160, 97);
 }
 .content .github-link {
-  background-color: rgb(149, 83, 180);
+  background-color: rgb(178, 87, 231);
   border: 1px solid rgb(121, 35, 109);
 }
 .content .bitbucket-link {
@@ -223,14 +230,14 @@ a {
   margin-left: 5px;
 }
 .content .content-body {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   font-size: 1.05em;
 }
 .content .content-body .content-text a {
   color: #597c20;
 }
 .content .content-body .content-text a:hover {
-  color: #8ec2ff;
+  color: #94ff8e;
 }
 .content .content-body .game-grid {
   display: flex;
@@ -238,16 +245,16 @@ a {
   flex-flow: row wrap;
 }
 .content .content-body .game-grid .game-container {
-  width: 150px;
+  width: 225px;
   margin: 0px 4px 10px 4px;
 }
 .content .content-body .game-grid .game-container .game-thumbnail-container {
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  height: 120px;
+  height: 180px;
   position: relative;
-  box-shadow: 0px 2px 5px rgb(180, 180, 180);
   transition: all 0.2s;
+  margin-bottom: 10px;
 }
 .content .content-body .game-grid .game-container .game-thumbnail-container .game-thumbnail {
   position: absolute;
@@ -258,22 +265,24 @@ a {
 .content .content-body .game-grid .game-container .game-name {
   font-size: 1.4em;
   text-align: center;
-  color: rgb(60, 60, 60);
+  color: light-dark(rgb(60, 60, 60), rgb(220, 220, 220));
   transition: all 0.1s;
+  white-space: nowrap;
 }
 .content .content-body .game-grid .game-container .label-container {
   text-align: center;
+  margin-bottom: 6px;
 }
 .content .content-body .game-grid .game-container:hover .game-thumbnail {
   transform: scale(1.05);
 }
 .content .content-body .game-grid .game-container:hover .game-name {
-  color: black;
+  color: light-dark(black, white);
 }
 .content .content-body .prog-container {
   display: block;
   position: relative;
-  background-color: rgb(235, 235, 235);
+  background-color: light-dark(rgb(235, 235, 235), #2f2f31);
   border-radius: 6px;
   padding: 5px 10px 10px 10px;
   margin-bottom: 10px;
@@ -284,6 +293,7 @@ a {
 .content .content-body .prog-container .prog-desc {
   color: rgb(120, 120, 120);
   font-size: 0.9em;
+  padding-top: 4px;
 }
 .content .content-body .prog-container .prog-github {
   position: absolute;
@@ -297,11 +307,11 @@ a {
   transition: all 0.1s;
 }
 .content .content-body .prog-container:hover .prog-github {
-  color: black;
+  color: light-dark(black, white);
 }
 .content .content-body .prog-container:hover .prog-github .fab {
   transform: scale(1.2);
-  color: rgb(108, 29, 153);
+  color: rgb(178, 87, 231);
 }
 .content .content-body .screenshot-grid {
   position: relative;
@@ -315,17 +325,18 @@ a {
 }
 .content .content-body .screenshot-grid .screenshot img {
   width: 100%;
-  box-shadow: 0px 2px 6px rgb(120, 120, 120);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
   border-radius: 6px;
 }
 .content .content-body .article-list-item {
-  background-color: rgb(234, 232, 228);
+  background-color: light-dark(rgb(234, 232, 228), #2f2f31);
   border-radius: 6px;
   padding: 5px 10px 10px 10px;
   margin-bottom: 20px;
 }
 .content .content-body .article-list-item .article-title {
   font-size: 1.4em;
+  color: light-dark(black, white);
 }
 .content .content-body .article-list-item .article-preview {
   margin: 20px 0px;
@@ -344,7 +355,7 @@ a {
 }
 .content .content-body .image-container img, .content .content-body .image-container video {
   border-radius: 10px;
-  box-shadow: 0px 2px 5px rgb(160, 160, 160);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
   max-width: 100%;
   margin: 5px 10px;
 }
@@ -363,7 +374,7 @@ a {
   transform: scale(1.2);
 }
 .link-icon:hover.icon-github {
-  color: rgb(108, 29, 153);
+  color: rgb(178, 87, 231);
 }
 .link-icon:hover.icon-itch {
   color: rgb(242, 114, 114);
@@ -395,37 +406,37 @@ a {
   white-space: nowrap;
 }
 .tech-label.label-cplusplus {
-  background-color: rgb(131, 152, 182);
+  background-color: rgb(55, 65, 79);
 }
 .tech-label.label-csharp {
-  background-color: rgb(159, 160, 231);
+  background-color: rgb(66, 68, 189);
 }
 .tech-label.label-java {
-  background-color: rgb(230, 147, 75);
+  background-color: rgb(173, 115, 65);
 }
 .tech-label.label-html {
-  background-color: rgb(132, 161, 114);
+  background-color: rgb(77, 90, 69);
 }
 .tech-label.label-scss {
-  background-color: rgb(192, 146, 199);
+  background-color: rgb(112, 86, 117);
 }
 .tech-label.label-unity {
-  background-color: rgb(138, 142, 145);
+  background-color: rgb(86, 88, 90);
 }
 .tech-label.label-android {
-  background-color: rgb(84, 199, 119);
+  background-color: rgb(64, 156, 92);
 }
 .tech-label.label-procgen {
-  background-color: rgb(236, 108, 103);
+  background-color: rgb(172, 61, 57);
 }
 .tech-label.label-shadergraph {
-  background-color: rgb(228, 196, 55);
+  background-color: rgb(149, 131, 51);
 }
 .tech-label.label-javascript {
-  background-color: rgb(219, 186, 39);
+  background-color: rgb(165, 143, 46);
 }
 .tech-label.label-team {
-  background-color: #6adabe;
+  background-color: #18765f;
 }
 
 .article-date, .image-label {
